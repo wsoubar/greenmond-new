@@ -11,13 +11,23 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { CriacaoPcsComponent } from './criacao-pcs/criacao-pcs.component';
+import { CidadeComponent } from './cidade/cidade.component';
+import { NpcsComponent } from './npcs/npcs.component';
+import { PersonagensComponent } from './personagens/personagens.component';
+import { FeedComponent } from './feed/feed.component';
+import { MeuPersonagemComponent } from './meu-personagem/meu-personagem.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MenuBarComponent,
-    CriacaoPcsComponent
+    CriacaoPcsComponent,
+    CidadeComponent,
+    NpcsComponent,
+    PersonagensComponent,
+    FeedComponent,
+    MeuPersonagemComponent
   ],
   imports: [
     BrowserModule,

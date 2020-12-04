@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" routerLink="/">{{title}}</a>
+    <a class="navbar-brand" data-toggle="collapse" data-target=".navbar-collapse.show" routerLink="/home" routerLinkActive="active">{{title}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuNavbar" aria-controls="menuNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -10,22 +10,22 @@
           <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" href="#">Feed</a>
+          <a class="nav-link" routerLink="/feed" routerLinkActive="active">Feed</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" href="#">A Cidade</a>
+          <a class="nav-link" routerLink="/cidade" routerLinkActive="active">A Cidade</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" href="#">Personagens</a>
+          <a class="nav-link" routerLink="/personagens" routerLinkActive="active">Personagens</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" href="#">NPCs</a>
+          <a class="nav-link" routerLink="/npcs" routerLinkActive="active">NPCs</a>
         </li>
         <li class="nav-item"  data-toggle="collapse" data-target=".navbar-collapse.show" >
           <a class="nav-link" routerLink="/criacao-pcs" routerLinkActive="active">Criação de Personagens</a>
         </li>
         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
-          <a class="nav-link" href="#">Meu Personagem</a>
+          <a class="nav-link" routerLink="/meu-personagem" routerLinkActive="active">Meu Personagem</a>
         </li>
         <li class="nav-item" >
           <a class="nav-link" style="cursor: pointer;" (click)="logout()">Sair</a>
