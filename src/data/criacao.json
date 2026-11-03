@@ -1,0 +1,34 @@
+[
+  {
+    "id": "city-lore",
+    "title": "City Lore",
+    "blocks": [
+      {
+        "type": "text",
+        "value": "O nível 2 de city lore permite aos personagens saberem que histórias antigas ainda refletem em conflitos e mágoas no presente. Sabem que os ventrue, que dominavam fazendas escravagistas no passado, e que viram o seu príncipe ser retirado do poder com o fim da guerra, não aceitam a presença desse príncipe que lhes foi imposto."
+      },
+      {
+        "type": "text",
+        "value": "Sabem que o próprio Justicar Brujah veio garantir a “troca” de príncipe."
+      },
+      {
+        "type": "text",
+        "value": "Tem noção de onde é seguro ir e onde não é. Mais ou menos como um morador do RJ sabe q não pode ir em determinadas regiões e tal."
+      },
+      {
+        "type": "text",
+        "value": "Sabem que os abraços são liberados de tempos em tempos, e para poucos. Então tem-se o costume de nomear essas \"temporadas de abraço\". A última temporada foi a chamada “season 8”, e aconteceu há quase 70 anos. Acredita-se que por causa da “mortandade” de mortais devido a gripe de 1918, não tenha aberto ainda uma temporada de abraços.\n\nOs personagens são “season 4”, por isso gozam de algum status (1 ponto de status)"
+      }
+    ]
+  },
+  {
+    "id": "construcao-de-personagens",
+    "title": "Construção de personagens",
+    "blocks": [
+      {
+        "type": "text",
+        "value": "Pontuação Ancilla\nAtributos: 8/6/4\nHabilidades: 15/11/6 (habilidades secundárias tem o custo reduzido à metade, ou seja, um ponto compra duas bolinhas)\nVantagens:\nDisciplinas: 7\nVirtudes: 7\nAntecedentes: 10\nHumanidade: Consciência + Autocontrole\nForça de Vontade: Coragem\nQualidades e Defeitos: máximo 7 pontos para defeitos, qualidade 8 pontos no máximo. Qualidades e defeitos devem ser aprovadas por mim \nPontos de bônus: 55\nIdade: entre 150 e 200 anos\nGeração inicial: 13ª, podendo baixar até 8ª com o antecedente geração"
+      }
+    ]
+  }
+]

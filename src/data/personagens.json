@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "cla": "Tremere",
+    "nome": "Jason P. Adams",
+    "apelido": "jason",
+    "jogador": "Tommy Wolf",
+    "descricao": "Tremere",
+    "planilha": "planilha",
+    "claImage": "images/clanlogos/tremere.png",
+    "historia": "Jason sempre foi um grande filho da puta. Não era o mais forte, não era o mais rápido, não era o mais popular. Ele era simplesmente aquele que fazia os outros fazerem as coisas em seu lugar. E foi apenas por isso que ele foi Abraçado: por ser o mais esperto e mais manipulador. Porém, ser Abraçado só porque ele sabia enrolar as pessoas não era justamente o que ele tinha em mente. Ao descobrir que o Clã Tremere tinha muito mais a oferecer, ele logo tratou de cair de cabeça dentro dos estudos do oculto, tentando mostrar que não era apenas um manipulador. Ele também era um magus de respeito. Ainda assim, ele sabia lá no fundo que na verdade, ele era apenas um grande filho da puta. Mesmo tendo aprendido a manipular a magia do sangue, sabendo de cor vários rituais, ele sabia que o que ele gostava de fazer era passar a perna nos outros. E foi assim que ele ganhou seu dinheiro, sua fama, sua boate e seu Elísio: enrolando e manipulando. \n\nJason é alto, loiro, cabelos curtos, olhos azuis e voz marcante. Aparenta ter uns 30 anos, talvez menos, e sempre se veste muitíssimo bem, mas não no termo social. Ele se veste dentro da moda atual, uma vez que ele lida com um publico mais jovial e descolado. \n\nSua fama vem de sua boate, assim como seus Recursos. Sua boate é a maior atração da cidade (em termos de vida noturna), e com ela, ele conseguiu seu prestígio na cidade. Ele também conseguiu fazer com que a boate se tornasse um Elísio, o que garante a segurança do Clube Noturno e também a presença de alguns Membros por ali, o que lhe fornece informação e mais fama/prestígio. Eventualmente, ele oferece refúgio para um ou outro vampiro, em troca de favores. Da mesma forma, o Rebanho vem do clube, são os frequentadores, geralmente as mulheres interesseiras que querem ficar perto do dono da casa. Os lacaios: um guarda-costas (que serve de leão-de-chácara no clube) e uma hacker, já que meu buneco não entende nada de computadores."
+  },
+  {
+    "id": "2",
+    "cla": "Ventrue",
+    "nome": "Hannibal Trautmam",
+    "apelido": "traut",
+    "jogador": "Douglas Amorim",
+    "descricao": "Ventrue",
+    "planilha": "planilha",
+    "claImage": "images/clanlogos/ventrue.png",
+    "historia": "O Coronel Hannibal Trautmam lutou na Guerra Civil Americana onde foi abraçado a beira da morte em sua última batalha, o ferimento em seu torax nunca cicatrizou completamente. \nTornou-se um grande pecuarista após ganhar muito dinheiro em mesas de poker. \nAgora é um forasteiro em uma nova cidade aparentemente buscando novos negócios no mundo mortal aparece sempre acompanhado de sua Secretária(uma Pepper do HdF versão Negra) ou de suas Motoristas ou das Guarda-Costas (estilo Hope do Lex Lutor, Negras)"
+  },
+  {
+    "id": "3",
+    "cla": "Nosferatu",
+    "nome": "0DOZ3",
+    "apelido": "0doze",
+    "jogador": "Leandro Lisboa",
+    "descricao": "Nosferatu",
+    "planilha": "planilha",
+    "claImage": "images/clanlogos/nosferatu.png",
+    "historia": "Joseph O'Brien de nascimento, nunca foi o mais popular de sua escola e a morte prematura de sua mãe em um acidente de carro quando ela voltava de madrugada do último turno de 36 do hospital St. Elizabeth em Brigthon só o tornou mais recluso. \nVivia com seu pai em um apartamento modesto em Dorchester - Boston, onde se trancava no quarto com seu computador lá pelo fim dos anos 80. Passava o seu tempo invadindo sistemas e acessando intranets empresariais, bem no início daquilo que se tornaria a grande rede. \nTudo estava bem na vida pacata de Jeff. Tudo bem, até conseguir acesso a uma rede que os usuários se referiam como SchreckNet. No início parecia um tipo de brincadeira, pois os usuários falavam de vampiros, redes de intriga, príncipes, uma sorte de assassinatos e um imenso organograma com alguns nomes conhecidos da cidade, mas atribuindo títulos a eles como: Ventrue, Toreador, Gangrel...\nAquela pesquisa toda não demorou muito tempo, após o acesso só levou o tempo do dia escurecer um pouco e ele apareceu na sua casa. O abraço foi logo em seguida, todo o processo doloroso ocorreu como deveria ser: Doloroso."
+  },
+  {
+    "id": "4",
+    "cla": "Gangrel",
+    "nome": "Nicholai Itchenko",
+    "apelido": "nc",
+    "jogador": "Wagner Barbosa",
+    "descricao": "Gangrel",
+    "planilha": "planilha",
+    "claImage": "images/clanlogos/gangrel.png",
+    "historia": "em construção!"
+  }
+]
