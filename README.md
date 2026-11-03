@@ -32,4 +32,6 @@ O conteúdo é público: não inclua senhas ou dados privados nesses arquivos. L
 
 ## Hospedagem
 
-A saída é `dist/`. O host deve servir `index.html` como fallback das rotas React. Para hospedar em subdiretório, ajuste `base` no `vite.config.ts` antes do build e valide os assets. Nenhum deploy foi executado.
+A saída é `dist/`. A aplicação usa `HashRouter`, compatível com GitHub Pages sem fallback de rotas. Exemplo: `https://wsoubar.github.io/greenmond-new/#/cidade/sunset-garden`. A configuração `base` no Vite define o subdiretório dos assets; não deve ser repetida nas rotas após o `#`.
+
+Links antigos sem `#` precisam ser atualizados: o GitHub Pages continuará retornando 404 para esses caminhos. O workflow publica a pasta `dist/` após push na `main`. Valide abertura direta e recarregamento após o deploy.

@@ -8,7 +8,7 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 function visit(path: string) {
-  window.history.replaceState({}, "", path);
+  window.history.replaceState({}, "", `/greenmond-new/#${path}`);
   render(<App />);
 }
 describe("navegação do cenário", () => {
@@ -17,7 +17,7 @@ describe("navegação do cenário", () => {
     visit(`/personagens/${p.id}`);
     expect(screen.getByRole("heading", { name: p.nome })).toBeTruthy();
     fireEvent.click(screen.getByRole("link", { name: /Consultar ficha/ }));
-    expect(window.location.pathname).toBe(`/fichas/${p.id}`);
+    expect(window.location.hash.slice(1)).toBe(`/fichas/${p.id}`);
     expect(screen.getByText("Ficha do personagem")).toBeTruthy();
   });
   it("filtra personagens e informa busca vazia", () => {
@@ -48,14 +48,14 @@ describe("relações dos locais", () => {
   it("abre a história do NPC ligado ao Palácio", () => {
     visit("/cidade/palacio-das-aguas");
     fireEvent.click(screen.getByRole("link", { name: /Lucius Wilber Smith/ }));
-    expect(window.location.pathname).toBe("/npcs/lucius-wilber-smith");
+    expect(window.location.hash.slice(1)).toBe("/npcs/lucius-wilber-smith");
     expect(screen.getByRole("heading", { name: "Lucius Wilber Smith" })).toBeTruthy();
     expect(screen.getByText(/colecionou mais inimigos/)).toBeTruthy();
   });
   it("abre Jason pelo Sunset Garden", () => {
     visit("/cidade/sunset-garden");
     fireEvent.click(screen.getByRole("link", { name: /Jason P. Adams/ }));
-    expect(window.location.pathname).toBe("/personagens/1");
+    expect(window.location.hash.slice(1)).toBe("/personagens/1");
   });
   it("resolve NPC por URL direta e trata ID inválido", () => {
     visit("/npcs/alice-monteir");
@@ -68,4 +68,18 @@ describe("relações dos locais", () => {
     visit("/cidade/o-centro");
     expect(screen.queryByRole("heading", { name: /Quem se relaciona/ })).toBeNull();
   });
+});
+
+it("mantém o endereço ao usar o atalho de conteúdo", () => {
+  visit("/cidade/sunset-garden");
+  fireEvent.click(screen.getByRole("link", { name: "Ir para o conteúdo" }));
+  expect(window.location.hash).toBe("#/cidade/sunset-garden");
+  expect(document.activeElement?.id).toBe("conteudo");
+});
+it("reabre a rota pelo endereço com hash", () => {
+  visit("/cidade/sunset-garden");
+  expect(screen.getByRole("link", { name: /Jason P. Adams/ }).getAttribute("href")).toBe("#/personagens/1");
+  cleanup();
+  render(<App />);
+  expect(screen.getByRole("heading", { name: "Sunset Garden" })).toBeTruthy();
 });

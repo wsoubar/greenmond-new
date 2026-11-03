@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Link,
   NavLink,
   Route,
@@ -455,9 +455,12 @@ function Creation() {
 export default function App() {
   const [open, setOpen] = useState(false);
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <ScrollTop />
-      <a className="skip-link" href="#conteudo">
+      <a className="skip-link" href="#conteudo" onClick={(event) => {
+        event.preventDefault();
+        document.getElementById("conteudo")?.focus();
+      }}>
         Ir para o conteúdo
       </a>
       <aside className="sidebar">
@@ -527,6 +530,6 @@ export default function App() {
           <p>Carolina do Sul · Crônicas da noite</p>
         </footer>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
