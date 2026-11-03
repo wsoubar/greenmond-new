@@ -306,7 +306,9 @@ function Characters() {
             key={p.id}
             to={`/personagens/${p.id}`}
           >
-            <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+            <div className="character-card__emblem">
+              <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+            </div>
             <p className="eyebrow">{p.cla}</p>
             <h2>{p.nome}</h2>
             <p>Jogador: {p.jogador}</p>
@@ -334,7 +336,9 @@ function Character({ sheet = false }: { sheet?: boolean }) {
       </Link>
       <Heading label={`${p.cla} · ${p.jogador}`} title={p.nome} />
       <div className="character-banner">
-        <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+        <div className="character-banner__emblem">
+          <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+        </div>
         <div>
           <p className="eyebrow">
             {sheet ? "Ficha do personagem" : "História do personagem"}
@@ -383,7 +387,9 @@ function Npcs() {
       {groups.map((g) => (
         <section className="clan-section" key={g.id}>
           <div className="clan-heading">
-            <img src={asset(g.image)} alt="" />
+            <div className="clan-heading__emblem">
+              <img src={asset(g.image)} alt="" />
+            </div>
             <h2>{g.title}</h2>
             <span>{g.people.length} figuras</span>
           </div>
