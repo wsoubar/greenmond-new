@@ -28,10 +28,14 @@ Os JSONs de `src/data/` são a fonte consumida pela aplicação. Imagens ficam e
 
 Conteúdo novo que deve sobreviver à extração, como história e ficha de Nicholai, fica em `content/overrides/` e é reaplicado pelo script após ler o legado. Atualize esse arquivo de origem ao revisar Nicholai.
 
-O conteúdo é público: não inclua senhas ou dados privados nesses arquivos. Login e feed compartilhado ainda não foram implementados.
+O conteúdo é público: não inclua senhas ou dados privados nesses arquivos. O diário possui login e revisão pelo narrador via Supabase; confira a configuração em [docs/diario-supabase.md](docs/diario-supabase.md). O feed legado não foi recuperado.
 
 ## Hospedagem
 
 A saída é `dist/`. A aplicação usa `HashRouter`, compatível com GitHub Pages sem fallback de rotas. Exemplo: `https://wsoubar.github.io/greenmond-new/#/cidade/sunset-garden`. A configuração `base` no Vite define o subdiretório dos assets; não deve ser repetida nas rotas após o `#`.
 
 Links antigos sem `#` precisam ser atualizados: o GitHub Pages continuará retornando 404 para esses caminhos. O workflow publica a pasta `dist/` após push na `main`. Valide abertura direta e recarregamento após o deploy.
+
+## Diário com Supabase
+
+Consulte [o guia de configuração](docs/diario-supabase.md) para aplicar a migração, autorizar participantes e configurar variáveis locais e do GitHub Actions. Todas as tabelas, funções e políticas usam o prefixo `greenmond_`. Use `npm run test:db` para validar as permissões em PostgreSQL local embutido. Sem configuração, o acervo continua disponível.

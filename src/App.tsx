@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  HashRouter,
+  createHashRouter,
+  RouterProvider,
   Link,
   NavLink,
   Route,
@@ -24,6 +25,10 @@ import {
   type Section,
 } from "./lib/content";
 
+import { AuthProvider } from "./features/diary/Auth";
+import { DiaryList, DiaryDetail, MyDiary, DiaryEditor, Login } from "./features/diary/Pages";
+import { DiarySearch } from "./features/diary/Search";
+
 const navigation = [
   ["/", "Visão geral"],
   ["/cidade", "A cidade"],
@@ -31,6 +36,8 @@ const navigation = [
   ["/npcs", "NPCs"],
   ["/criacao", "Criação de personagens"],
   ["/busca", "Buscar no acervo"],
+  ["/diario", "Diário da crônica"],
+  ["/meu-diario", "Escrita e revisão"],
 ];
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -373,8 +380,9 @@ function Search() {
         <input type="search" value={query} placeholder="Nome, clã ou trecho da história"
           onChange={(e) => setParams(e.target.value ? { q: e.target.value } : {}, { replace: true })} />
       </label></div>
-      <p role="status">{!query.trim() ? "Digite um termo para explorar o acervo." : `${results.length} resultado(s) encontrado(s).`}</p>
-      {query.trim() && !results.length && <p className="empty">Nenhum resultado encontrado. Experimente outro termo.</p>}
+      <p role="status">{!query.trim() ? "Digite um termo para explorar o acervo." : `${results.length} resultado(s) encontrado(s) no acervo local.`}</p>
+      {query.trim() && !results.length && <p className="empty">Nenhum resultado encontrado no acervo local. Experimente outro termo.</p>}
+      <DiarySearch key={query} query={query} />
       {["Locais", "Personagens", "NPCs"].map((category) => {
         const entries = results.filter((r) => r.category === category);
         return entries.length ? <section className="search-results" key={category}>
@@ -500,10 +508,10 @@ function Creation() {
     </>
   );
 }
-export default function App() {
+export function AppShell() {
   const [open, setOpen] = useState(false);
   return (
-    <HashRouter>
+    <AuthProvider>
       <ScrollTop />
       <a className="skip-link" href="#conteudo" onClick={(event) => {
         event.preventDefault();
@@ -571,6 +579,11 @@ export default function App() {
             <Route path="/npcs/:npcId" element={<Npc />} />
             <Route path="/criacao" element={<Creation />} />
             <Route path="/busca" element={<Search />} />
+            <Route path="/diario" element={<DiaryList />} />
+            <Route path="/diario/:entryId" element={<DiaryDetail />} />
+            <Route path="/entrar" element={<Login />} />
+            <Route path="/meu-diario" element={<MyDiary />} />
+            <Route path="/meu-diario/:entryId" element={<DiaryEditor />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
@@ -579,6 +592,13 @@ export default function App() {
           <p>Carolina do Sul · Crônicas da noite</p>
         </footer>
       </div>
-    </HashRouter>
+    </AuthProvider>
   );
+}
+
+export function createAppRouter() {
+  return createHashRouter([{ path: "*", element: <AppShell /> }]);
+}
+export default function App({ router }: { router: ReturnType<typeof createAppRouter> }) {
+  return <RouterProvider router={router} />;
 }

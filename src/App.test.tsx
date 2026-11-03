@@ -1,15 +1,20 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import App from "./App";
+import { createAppRouter } from "./App";
+import { RouterProvider } from "react-router";
 import { personagens } from "./lib/content";
+// Estes cenários validam o acervo sem depender da configuração local do diário.
+vi.mock("./features/diary/client", () => ({ supabase: null }));
 beforeEach(() => {
   window.scrollTo = vi.fn();
 });
-afterEach(cleanup);
+const routers: ReturnType<typeof createAppRouter>[] = [];
+afterEach(() => { cleanup(); routers.splice(0).forEach((router) => router.dispose()); });
+function renderApp() { const router = createAppRouter(); routers.push(router); render(<RouterProvider router={router} />); }
 function visit(path: string) {
   window.history.replaceState({}, "", `/greenmond-new/#${path}`);
-  render(<App />);
+  renderApp();
 }
 describe("navegação do cenário", () => {
   it("abre detalhe por URL direta e navega até a ficha", () => {
@@ -80,7 +85,7 @@ it("reabre a rota pelo endereço com hash", () => {
   visit("/cidade/sunset-garden");
   expect(screen.getByRole("link", { name: /Jason P. Adams/ }).getAttribute("href")).toBe("#/personagens/1");
   cleanup();
-  render(<App />);
+  renderApp();
   expect(screen.getByRole("heading", { name: "Sunset Garden" })).toBeTruthy();
 });
 
@@ -114,4 +119,11 @@ it("busca global trata pesquisa vazia e sem resultados", () => {
   fireEvent.change(screen.getByRole("searchbox"), { target: { value: "Alice" } });
   expect(screen.getByRole("heading", { name: /Locais/ })).toBeTruthy();
   expect(screen.getByRole("heading", { name: /NPCs/ })).toBeTruthy();
+});
+
+it("mantém o acervo disponível quando o diário não está configurado", () => {
+  visit("/diario");
+  expect(screen.getByRole("heading", { name: "Diário indisponível" })).toBeTruthy();
+  fireEvent.click(screen.getByRole("link", { name: /Explorar Greenmond/ }));
+  expect(screen.getByRole("heading", { name: "Greenmond." })).toBeTruthy();
 });
