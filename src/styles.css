@@ -705,15 +705,21 @@ main > .text-link:first-child {
   border-color: #a85f73;
   transform: translateY(-3px);
 }
-.character-card > img {
+.character-card__emblem {
   float: right;
   width: 85px;
   height: 85px;
-  object-fit: contain;
+  display: grid;
+  place-items: center;
   background: #eee9e0;
   padding: 14px;
   border-radius: 50%;
   margin: 0 0 25px 20px;
+}
+.character-card__emblem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   mix-blend-mode: normal;
 }
 .character-card > .eyebrow {
@@ -1065,7 +1071,7 @@ details p {
   .character-card h2 {
     font-size: 28px;
   }
-  .character-card > img {
+  .character-card__emblem {
     width: 65px;
     height: 65px;
     margin-left: 10px;
@@ -1239,7 +1245,7 @@ details p {
   .character-card h2 {
     font-size: 32px;
   }
-  .character-card > img {
+  .character-card__emblem {
     width: 75px;
     height: 75px;
   }
