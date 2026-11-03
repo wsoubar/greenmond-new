@@ -26,6 +26,8 @@ npm run preview
 
 Os JSONs de `src/data/` são a fonte consumida pela aplicação. Imagens ficam em `public/images/`. Alterações precisam de novo build. Para repetir a extração dos originais, execute `python3 scripts/migrate-content.py`; isso sobrescreve os JSONs migrados. Não edite os originais para atualizar a aplicação nova. Consulte `docs/migracao.md` para procedência e limitações.
 
+Conteúdo novo que deve sobreviver à extração, como história e ficha de Nicholai, fica em `content/overrides/` e é reaplicado pelo script após ler o legado. Atualize esse arquivo de origem ao revisar Nicholai.
+
 O conteúdo é público: não inclua senhas ou dados privados nesses arquivos. Login e feed compartilhado ainda não foram implementados.
 
 ## Hospedagem

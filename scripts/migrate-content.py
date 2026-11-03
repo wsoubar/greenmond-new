@@ -37,7 +37,7 @@ for card in cards('npcs'):
         people.append({'id':slug(name),'name':name,'description':description})
     groups.append({'id':slug(title),'title':title,'image':image,'people':people})
 save('npcs.json',groups)
-# Histórias, jogadores e fichas aguardam decisão de visibilidade.
+# Histórias, jogadores e fichas foram autorizados pelo usuário, exceto senhas.
 for folder in ['cidade','clanlogos']:
     shutil.copytree(source/'img'/folder,Path('public/images')/folder,dirs_exist_ok=True)
 shutil.copy2(source/'img/ionic.png','public/images/ionic.png')
@@ -53,3 +53,13 @@ for match in re.finditer(r'ng-show="user.id == \'([^\']+)\'"(.*?)(?=ng-show="use
     paragraphs=re.findall(r'<p\b[^>]*>(.*?)</p>',match.group(2),re.S)
     sheets.append({'personagemId':match.group(1),'text':'\n\n'.join(text(p) for p in paragraphs if '{{' not in p)})
 save('fichas.json',sheets)
+
+# Conteúdo novo autorizado prevalece sobre os placeholders, sem editar o legado.
+for override_path in sorted(Path('content/overrides').glob('*.json')):
+    override = json.loads(override_path.read_text())
+    character = next(p for p in characters if p['id'] == override['personagemId'])
+    sheet = next(p for p in sheets if p['personagemId'] == override['personagemId'])
+    character['historia'] = override['historia']
+    sheet['text'] = override['ficha']
+save('personagens.json', characters)
+save('fichas.json', sheets)

@@ -39,3 +39,13 @@ Servidor Vite iniciado com sucesso. Verificação HTTP retornou 200 para a entra
 Após avaliação do usuário, a composição inicial foi substituída por navegação horizontal, fundo grafite, acentos vinho e títulos marfim. A home passou a combinar título e fotografia em colunas, cartões fotográficos e seção de símbolos dos clãs. Páginas internas receberam campos, painéis, detalhes e tipografia coerentes com essa direção. Imagens e conteúdo narrativo preservados.
 
 Lint, cinco testes existentes e build passaram. Navegador conectado indisponível: não foi realizada inspeção visual em desktop/celular nesta revisão. A avaliação estética do usuário continua pendente.
+
+## Nicholai Itchenko — conteúdo novo autorizado
+
+O usuário solicitou criar história e ficha para substituir os placeholders do personagem 4. Conteúdo autoral registrado em `content/overrides/nicholai.json` e aplicado aos JSONs de personagens e fichas. O extrator reaplica esse conteúdo após a migração para impedir perda em uma nova execução. Os arquivos originais permanecem preservados; os outros três personagens não foram alterados.
+
+Nicholai permanece Gangrel e jogador Wagner Barbosa. Idade adotada: 175 anos totais, 150 desde o Abraço, 25 aparentes. Não há dados para calcular média exata: Jason não informa nascimento/Abraço, Hannibal referencia a Guerra Civil e 0DOZ3 descreve computadores nos anos 1980. Usou-se o ponto médio da faixa 150–200 das regras da aplicação, sem estabelecer ano civil. A história vincula sua presença na cidade à season 4, sem atribuir novos cargos ou alterar NPCs existentes.
+
+Ficha orientada a sobrevivência e combate: 8ª geração, Metamorfose 5, Fortitude 4, Animalismo 1, Força de Vontade 9 e Humanidade 7. Atributos 8/6/4 além dos pontos iniciais; Habilidades 15/11/6; Disciplinas 7; Antecedentes 10, incluindo Status 1; Virtudes 7 além dos pontos iniciais. Bônus: 5 + 16 + 21 + 6 + 2 + 5 = 55. Sem Qualidades, Defeitos ou experiência extra. Comparabilidade de poder é avaliação por especialização, não equivalência comprovada das fichas antigas, cujas contagens divergem.
+
+A edição não está declarada no projeto. Custos por ponto assumidos e explicitados na ficha: atributo 5, habilidade 2, disciplina 7, antecedente 1, humanidade 2, vontade 1. Não foram inventados poderes de nível superior a 5, rituais ou regras de equipamento. Efeitos das Disciplinas e fraqueza de clã dependem da edição escolhida pelo narrador. A consulta externa ao livro V20 não pôde ser concluída devido ao limite de tamanho do PDF; as convenções acima são premissas explícitas, não validação editorial da edição.
