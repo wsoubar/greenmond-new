@@ -1325,7 +1325,7 @@ details p {
 /* Diário: utiliza a mesma tipografia e paleta do acervo. */
 .diary-toolbar, .diary-account, .diary-pagination, .diary-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; margin: 20px 0; }
 .diary-account { margin: 0; }
-.diary-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+.diary-grid { list-style: none; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
 .diary-grid li { min-width: 0; border: 1px solid var(--line); border-radius: 8px; }
 .diary-grid a { display: block; height: 100%; padding: 26px; overflow-wrap: anywhere; }
 .diary-grid a:hover, .diary-grid a:focus-visible { background: #ffffff08; }

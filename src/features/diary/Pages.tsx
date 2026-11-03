@@ -75,8 +75,11 @@ function Header({
 }
 export function diaryDate(date: string | null) {
   return date
-    ? new Date(date).toLocaleDateString("pt-BR", {
+    ? new Date(date).toLocaleString("pt-BR", {
         timeZone: "America/Sao_Paulo",
+        dateStyle: "short",
+        timeStyle: "short",
+        hour12: false,
       })
     : "";
 }
@@ -111,7 +114,7 @@ function EntryCards({
             <small>
               {privateView
                 ? "Atualizado em " + diaryDate(entry.updated_at)
-                : diaryDate(entry.published_at)}
+                : "Publicado em " + diaryDate(entry.published_at)}
             </small>
           </Link>
         </li>
