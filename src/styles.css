@@ -1311,3 +1311,13 @@ details p {
 .related-people a:hover, .related-people a:focus-visible { background: #ffffff08; }
 .related-people h3 { margin: 10px 0; font-family: var(--serif); font-size: 22px; }
 .related-people p { color: var(--muted); margin: 0; line-height: 1.6; }
+
+.search-results { margin: 32px 0; }
+.search-results h2 { font-family: var(--serif); font-size: 26px; }
+.search-results h2 span { color: var(--muted); font: 16px var(--font-sans); }
+.search-results ul { list-style: none; padding: 0; }
+.search-results li { border-bottom: 1px solid var(--line); }
+.search-results a { display: block; padding: 20px 12px; overflow-wrap: anywhere; }
+.search-results a:hover, .search-results a:focus-visible { background: #ffffff08; }
+.search-results h3 { margin: 0 0 10px; font: 23px var(--serif); }
+.search-results p { margin: 0; color: var(--muted); line-height: 1.7; }

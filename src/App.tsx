@@ -7,10 +7,13 @@ import {
   Routes,
   useLocation,
   useParams,
+  useSearchParams,
 } from "react-router";
 import {
   asset,
   relatedPeople,
+  relatedPlaces,
+  searchContent,
   cidade,
   criacao,
   npcs,
@@ -27,6 +30,7 @@ const navigation = [
   ["/personagens", "Personagens"],
   ["/npcs", "NPCs"],
   ["/criacao", "Criação de personagens"],
+  ["/busca", "Buscar no acervo"],
 ];
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -341,6 +345,48 @@ function Characters() {
     </>
   );
 }
+function RelatedPlaces({ type, id }: { type: "personagem" | "npc"; id: string }) {
+  const places = relatedPlaces(type, id);
+  if (!places.length) return null;
+  return (
+    <section className="related-people" aria-labelledby="places-heading">
+      <h2 id="places-heading">Locais relacionados</h2>
+      <ul>{places.map((place) => (
+        <li key={place.href}><Link to={place.href}>
+          <h3>{place.title} <span aria-hidden="true">↗</span></h3>
+          <p>{place.role}</p>
+        </Link></li>
+      ))}</ul>
+    </section>
+  );
+}
+function Search() {
+  const [params, setParams] = useSearchParams();
+  const query = params.get("q") ?? "";
+  const results = searchContent(query);
+  return (
+    <>
+      <Heading label="Acervo de Greenmond" title="Buscar no acervo">
+        Encontre locais, personagens e NPCs por nome, clã ou palavras de suas histórias.
+      </Heading>
+      <div className="filters"><label>O que você procura?
+        <input type="search" value={query} placeholder="Nome, clã ou trecho da história"
+          onChange={(e) => setParams(e.target.value ? { q: e.target.value } : {}, { replace: true })} />
+      </label></div>
+      <p role="status">{!query.trim() ? "Digite um termo para explorar o acervo." : `${results.length} resultado(s) encontrado(s).`}</p>
+      {query.trim() && !results.length && <p className="empty">Nenhum resultado encontrado. Experimente outro termo.</p>}
+      {["Locais", "Personagens", "NPCs"].map((category) => {
+        const entries = results.filter((r) => r.category === category);
+        return entries.length ? <section className="search-results" key={category}>
+          <h2>{category} <span>({entries.length})</span></h2>
+          <ul>{entries.map((entry) => <li key={entry.href}>
+            <Link to={entry.href}><h3>{entry.title} <span aria-hidden="true">↗</span></h3><p>{entry.excerpt}</p></Link>
+          </li>)}</ul>
+        </section> : null;
+      })}
+    </>
+  );
+}
 function Character({ sheet = false }: { sheet?: boolean }) {
   const { personagemId } = useParams();
   const p = findCharacter(personagemId);
@@ -352,6 +398,7 @@ function Character({ sheet = false }: { sheet?: boolean }) {
         ← {sheet ? "História do personagem" : "Personagens"}
       </Link>
       <Heading label={`${p.cla} · ${p.jogador}`} title={p.nome} />
+      {!sheet && <RelatedPlaces type="personagem" id={p.id} />}
       <div className="character-banner">
         <div className="character-banner__emblem">
           <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
@@ -386,6 +433,7 @@ function Npc() {
     <>
       <Link className="text-link" to="/npcs">← Figuras da cidade</Link>
       <Heading label={`NPC · ${group.title}`} title={person.name} />
+      <RelatedPlaces type="npc" id={person.id} />
       <div className="reading"><p>{person.description}</p></div>
     </>
   );
@@ -522,6 +570,7 @@ export default function App() {
             <Route path="/npcs" element={<Npcs />} />
             <Route path="/npcs/:npcId" element={<Npc />} />
             <Route path="/criacao" element={<Creation />} />
+            <Route path="/busca" element={<Search />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

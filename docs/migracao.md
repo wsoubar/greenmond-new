@@ -85,3 +85,7 @@ Acrescentados três parágrafos sobre economia rural e tecnológica, memória hi
 ## Navegação entre locais e pessoas
 
 `src/data/relacoes-locais.json` registra os oito vínculos aprovados nos seis locais. Os cartões levam às histórias dos personagens ou às novas páginas `/npcs/:npcId`, com tratamento de ID inexistente. O arquivo de relações é independente da extração do legado. Não foram inferidos vínculos adicionais por clã.
+
+## Exploração do acervo
+
+As histórias de personagens e NPCs exibem locais relacionados derivados do mesmo arquivo de vínculos, sem duplicação ou inferência por clã. A rota `/busca?q=termo` consulta nomes, clãs, jogadores e textos de locais, personagens e NPCs, ignorando acentos e caixa. Resultados agrupados por categoria incluem trechos e links diretos; termos múltiplos devem aparecer no mesmo registro. A busca não inclui fichas ou regras. Não usa serviços externos.

@@ -36,3 +36,32 @@ export function relatedPeople(placeId: string) {
     return { name: person.name, clan: group.title, href: `/npcs/${person.id}`, role: relation.vinculo };
   });
 }
+
+export function relatedPlaces(type: "personagem" | "npc", id: string) {
+  return Object.entries(relacoesLocais).flatMap(([placeId, relations]) => {
+    const relation = relations.find((r) => r.tipo === type && r.id === id);
+    if (!relation) return [];
+    const place = cidade.find((p) => p.id === placeId);
+    if (!place) throw new Error(`Local relacionado inexistente: ${placeId}`);
+    return [{ title: place.title, href: `/cidade/${place.id}`, role: relation.vinculo }];
+  });
+}
+
+const searchEntries = [
+  ...cidade.map((p) => ({ title: p.title, category: "Locais", href: `/cidade/${p.id}`, text: p.blocks.filter((b) => b.type === "text").map((b) => b.value).join(" ") })),
+  ...personagens.map((p) => ({ title: p.nome, category: "Personagens", href: `/personagens/${p.id}`, text: `${p.cla} · ${p.jogador} · ${p.apelido}. ${p.historia}` })),
+  ...npcs.flatMap((g) => g.people.map((p) => ({ title: p.name, category: "NPCs", href: `/npcs/${p.id}`, text: `${g.title}. ${p.description}` }))),
+];
+export function searchContent(query: string) {
+  const terms = normalize(query.trim()).split(/\s+/).filter(Boolean);
+  if (!terms.length) return [];
+  return searchEntries.filter((entry) => {
+    const text = normalize(`${entry.title} ${entry.text}`);
+    return terms.every((term) => text.includes(term));
+  }).map((entry) => {
+    const text = entry.text.replace(/\s+/g, " ");
+    const matchIndex = normalize(text).indexOf(terms[0]);
+    const start = Math.max(0, matchIndex - 50);
+    return { ...entry, excerpt: `${start ? "…" : ""}${text.slice(start, start + 220)}${text.length > start + 220 ? "…" : ""}` };
+  });
+}

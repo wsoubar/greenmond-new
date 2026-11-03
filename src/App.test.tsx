@@ -83,3 +83,35 @@ it("reabre a rota pelo endereço com hash", () => {
   render(<App />);
   expect(screen.getByRole("heading", { name: "Sunset Garden" })).toBeTruthy();
 });
+
+it("navega da pessoa ao local e volta pelo histórico", async () => {
+  visit("/personagens/1");
+  fireEvent.click(screen.getByRole("link", { name: /Sunset Garden/ }));
+  expect(window.location.hash).toBe("#/cidade/sunset-garden");
+  window.history.back();
+  expect(await screen.findByRole("heading", { name: "Locais relacionados" })).toBeTruthy();
+  expect(window.location.hash).toBe("#/personagens/1");
+});
+it("mostra local relacionado em NPC e omite seção sem vínculos", () => {
+  visit("/npcs/alice-monteir");
+  expect(screen.getByRole("link", { name: /The Skull Pub/ }).getAttribute("href")).toBe("#/cidade/the-skull-pub");
+  cleanup();
+  visit("/personagens/3");
+  expect(screen.queryByRole("heading", { name: "Locais relacionados" })).toBeNull();
+});
+it("busca global preserva termo na URL e navega ao resultado", () => {
+  visit("/busca?q=SchreckNet");
+  expect((screen.getByRole("searchbox") as HTMLInputElement).value).toBe("SchreckNet");
+  fireEvent.click(screen.getByRole("link", { name: /0DOZ3/ }));
+  expect(window.location.hash).toBe("#/personagens/3");
+});
+it("busca global trata pesquisa vazia e sem resultados", () => {
+  visit("/busca");
+  expect(screen.getByRole("status").textContent).toContain("Digite um termo");
+  fireEvent.change(screen.getByRole("searchbox"), { target: { value: "zzzzinexistente" } });
+  expect(window.location.hash).toContain("q=zzzzinexistente");
+  expect(screen.getByText(/Nenhum resultado encontrado/)).toBeTruthy();
+  fireEvent.change(screen.getByRole("searchbox"), { target: { value: "Alice" } });
+  expect(screen.getByRole("heading", { name: /Locais/ })).toBeTruthy();
+  expect(screen.getByRole("heading", { name: /NPCs/ })).toBeTruthy();
+});
