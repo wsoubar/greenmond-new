@@ -1,0 +1,202 @@
+[
+  {
+    "id": "a-cidade-de-greenmond",
+    "title": "A cidade de Greenmond",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-01.jpg"
+      },
+      {
+        "type": "text",
+        "value": "É uma cidade de porte médio do estado americano da Carolina do Sul. Sua economia é baseada na agricultura/pecuária e mais recentemente também tem se destacado na área de serviços (tecnologia). Grande fornecedora de derivados de gado bovino e suíno.\nFundada no início do século XVII (1607) a cidade teve importância na participação no estopim da guerra de civil americana, sendo um dos principais Quarteis generais dos estados confederados, estados que apoiavam a escravidão e que se separaram dos estados unidos quando o abolicionista Abraham Lincoln se elegeu presidente em 1860. Um ano depois, tropas da cidade foram enviadas junto a tropas do sul no ataque a tropas federais no Forte Sumter em Charleston (Carolina do Sul). Desencadeando a guerra civil americana.\nDe volta aos dias de hoje temos um cidade com boa economia e poucos problemas sociais."
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-02.jpg"
+      },
+      {
+        "type": "heading",
+        "value": "Mortais Notáveis:"
+      },
+      {
+        "type": "text",
+        "value": "Prefeito: Morgan Banks (republicano)\n\nRichard Jones - Executivo e representante da Corporação Sniper Technologies\n\nPaul White - Fazendeiro e Presidente da Associação Agrícola de Greenmond"
+      },
+      {
+        "type": "text",
+        "value": "Malkavianos e gangrels são pouco vistos de uma maneira geral. Sem participação efetiva na estrutura da sociedade dos membros. Tendo como grande exceção a Margareth Carter (malk)"
+      }
+    ]
+  },
+  {
+    "id": "o-centro",
+    "title": "O Centro",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-03.jpg"
+      },
+      {
+        "type": "text",
+        "value": "Mais moderno com seus setores de ciência e tecnologia são a área dos Brujah. Alguns Ventrue também se acomodam deste área."
+      }
+    ]
+  },
+  {
+    "id": "os-jardins",
+    "title": "Os Jardins",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-04.jpg"
+      },
+      {
+        "type": "text",
+        "value": "São o centro cultural da cidade, com cinemas, teatros e uma galeria de arte. Esta área pertence aos Toreador."
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-05.jpg"
+      }
+    ]
+  },
+  {
+    "id": "universidades",
+    "title": "Universidades",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-06.jpg"
+      },
+      {
+        "type": "text",
+        "value": "Os Tremere são mais vistos nas universidades, campus e cidades universitárias. Aparecem por aqui também um ou outro Brujah mais velho."
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-07.jpg"
+      }
+    ]
+  },
+  {
+    "id": "campos-e-fazendas",
+    "title": "Campos e fazendas",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-08.jpg"
+      },
+      {
+        "type": "text",
+        "value": "A área rural, onde ficam as grandes fazendas e as indústrias alimentícias são áreascomandados pelos Ventrue. Sabe-se que gangrels também se aventuram por lá."
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-09.jpg"
+      }
+    ]
+  },
+  {
+    "id": "o-pantano",
+    "title": "O Pântano",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-10.jpg"
+      },
+      {
+        "type": "text",
+        "value": "O pântano é conhecido refúgio dos Nosferatu. Ficando no limite norte da cidade."
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-11.jpg"
+      }
+    ]
+  },
+  {
+    "id": "palacio-das-aguas",
+    "title": "Palácio das Águas",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-12.jpg"
+      },
+      {
+        "type": "text",
+        "value": "O centro do poder"
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-13.jpg"
+      }
+    ]
+  },
+  {
+    "id": "o-gran-cassino",
+    "title": "O Gran Cassino",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-14.jpg"
+      }
+    ]
+  },
+  {
+    "id": "sunset-garden",
+    "title": "Sunset Garden",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-15.jpg"
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-16.jpg"
+      }
+    ]
+  },
+  {
+    "id": "the-skull-pub",
+    "title": "The Skull Pub",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-17.jpg"
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-18.jpg"
+      }
+    ]
+  },
+  {
+    "id": "o-bairro-frances",
+    "title": "O Bairro Francês",
+    "blocks": [
+      {
+        "type": "image",
+        "value": "images/cidade/gm-19.jpg"
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-20.jpg"
+      }
+    ]
+  },
+  {
+    "id": "holly-shelter-game-land",
+    "title": "Holly Shelter Game Land",
+    "blocks": [
+      {
+        "type": "text",
+        "value": "O campo de caça"
+      },
+      {
+        "type": "image",
+        "value": "images/cidade/gm-21.jpg"
+      }
+    ]
+  }
+]
