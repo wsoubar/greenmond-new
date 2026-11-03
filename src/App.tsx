@@ -306,7 +306,9 @@ function Characters() {
             key={p.id}
             to={`/personagens/${p.id}`}
           >
-            <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+            <div className="character-card__emblem">
+              <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+            </div>
             <p className="eyebrow">{p.cla}</p>
             <h2>{p.nome}</h2>
             <p>Jogador: {p.jogador}</p>
