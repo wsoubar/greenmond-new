@@ -307,7 +307,9 @@ function Characters() {
             to={`/personagens/${p.id}`}
           >
             <div className="character-card__emblem">
-              <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+              <div className="character-banner__emblem">
+          <img src={asset(p.claImage)} alt={`Símbolo do clã ${p.cla}`} />
+        </div>
             </div>
             <p className="eyebrow">{p.cla}</p>
             <h2>{p.nome}</h2>
