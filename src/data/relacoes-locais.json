@@ -1,0 +1,54 @@
+{
+  "palacio-das-aguas": [
+    {
+      "tipo": "npc",
+      "id": "lucius-wilber-smith",
+      "vinculo": "Príncipe · sede da corte"
+    },
+    {
+      "tipo": "npc",
+      "id": "norman-brown",
+      "vinculo": "Xerife · coordena a segurança"
+    },
+    {
+      "tipo": "npc",
+      "id": "frank-baker",
+      "vinculo": "Acompanha os assuntos por intermédio de Norman"
+    }
+  ],
+  "o-gran-cassino": [
+    {
+      "tipo": "personagem",
+      "id": "2",
+      "vinculo": "Frequentador · pôquer e novos negócios"
+    }
+  ],
+  "sunset-garden": [
+    {
+      "tipo": "personagem",
+      "id": "1",
+      "vinculo": "Proprietário · anfitrião do Elísio"
+    }
+  ],
+  "the-skull-pub": [
+    {
+      "tipo": "npc",
+      "id": "alice-monteir",
+      "vinculo": "Proprietária · bar de rock"
+    }
+  ],
+  "o-bairro-frances": [
+    {
+      "tipo": "npc",
+      "id": "muriel-schurer",
+      "vinculo": "Frequentadora · interesse pelos palcos"
+    }
+  ],
+  "holly-shelter-game-land": [
+    {
+      "tipo": "personagem",
+      "id": "4",
+      "vinculo": "Guia · reconhecimento e condução"
+    }
+  ]
+}

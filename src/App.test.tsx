@@ -43,3 +43,29 @@ describe("navegação do cenário", () => {
     expect(screen.getByRole("link", { name: /Voltar ao início/ })).toBeTruthy();
   });
 });
+
+describe("relações dos locais", () => {
+  it("abre a história do NPC ligado ao Palácio", () => {
+    visit("/cidade/palacio-das-aguas");
+    fireEvent.click(screen.getByRole("link", { name: /Lucius Wilber Smith/ }));
+    expect(window.location.pathname).toBe("/npcs/lucius-wilber-smith");
+    expect(screen.getByRole("heading", { name: "Lucius Wilber Smith" })).toBeTruthy();
+    expect(screen.getByText(/colecionou mais inimigos/)).toBeTruthy();
+  });
+  it("abre Jason pelo Sunset Garden", () => {
+    visit("/cidade/sunset-garden");
+    fireEvent.click(screen.getByRole("link", { name: /Jason P. Adams/ }));
+    expect(window.location.pathname).toBe("/personagens/1");
+  });
+  it("resolve NPC por URL direta e trata ID inválido", () => {
+    visit("/npcs/alice-monteir");
+    expect(screen.getByRole("heading", { name: "Alice Monteir" })).toBeTruthy();
+    cleanup();
+    visit("/npcs/inexistente");
+    expect(screen.getByRole("heading", { name: /Este caminho/ })).toBeTruthy();
+  });
+  it("não mostra relações em locais sem vínculo aprovado", () => {
+    visit("/cidade/o-centro");
+    expect(screen.queryByRole("heading", { name: /Quem se relaciona/ })).toBeNull();
+  });
+});

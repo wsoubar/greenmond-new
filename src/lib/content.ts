@@ -1,3 +1,4 @@
+import relacoesLocais from "../data/relacoes-locais.json";
 import cidade from "../data/cidade.json";
 import criacao from "../data/criacao.json";
 import npcs from "../data/npcs.json";
@@ -19,4 +20,19 @@ export function findCharacter(id: string | undefined) {
 }
 export function asset(path: string) {
   return import.meta.env.BASE_URL + path.replace(/^\//, "");
+}
+
+export function relatedPeople(placeId: string) {
+  const relations = (relacoesLocais as Record<string, { tipo: string; id: string; vinculo: string }[]>)[placeId] ?? [];
+  return relations.map((relation) => {
+    if (relation.tipo === "personagem") {
+      const person = findCharacter(relation.id);
+      if (!person) throw new Error(`Personagem relacionado inexistente: ${relation.id}`);
+      return { name: person.nome, clan: person.cla, href: `/personagens/${person.id}`, role: relation.vinculo };
+    }
+    const group = npcs.find((g) => g.people.some((p) => p.id === relation.id));
+    const person = group?.people.find((p) => p.id === relation.id);
+    if (!person || !group) throw new Error(`NPC relacionado inexistente: ${relation.id}`);
+    return { name: person.name, clan: group.title, href: `/npcs/${person.id}`, role: relation.vinculo };
+  });
 }

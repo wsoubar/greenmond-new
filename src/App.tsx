@@ -10,6 +10,7 @@ import {
 } from "react-router";
 import {
   asset,
+  relatedPeople,
   cidade,
   criacao,
   npcs,
@@ -261,6 +262,22 @@ function Place() {
         ← A cidade
       </Link>
       <Heading label="Lugares de Greenmond" title={place.title} />
+      {relatedPeople(place.id).length > 0 && (
+        <section className="related-people" aria-labelledby="related-heading">
+          <h2 id="related-heading">Quem se relaciona com este lugar</h2>
+          <ul>
+            {relatedPeople(place.id).map((person) => (
+              <li key={person.href}>
+                <Link to={person.href}>
+                  <span className="eyebrow">{person.clan}</span>
+                  <h3>{person.name} <span aria-hidden="true">↗</span></h3>
+                  <p>{person.role}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <Blocks section={place} />
     </>
   ) : (
@@ -360,6 +377,19 @@ function Character({ sheet = false }: { sheet?: boolean }) {
     </>
   );
 }
+function Npc() {
+  const { npcId } = useParams();
+  const group = npcs.find((g) => g.people.some((p) => p.id === npcId));
+  const person = group?.people.find((p) => p.id === npcId);
+  if (!person || !group) return <NotFound />;
+  return (
+    <>
+      <Link className="text-link" to="/npcs">← Figuras da cidade</Link>
+      <Heading label={`NPC · ${group.title}`} title={person.name} />
+      <div className="reading"><p>{person.description}</p></div>
+    </>
+  );
+}
 function Npcs() {
   const [query, setQuery] = useState("");
   const groups = npcs
@@ -396,7 +426,7 @@ function Npcs() {
           {g.people.map((p) => (
             <details key={p.id}>
               <summary>{p.name}</summary>
-              <p>{p.description}</p>
+              <p>{p.description}<br /><Link className="text-link" to={`/npcs/${p.id}`}>Abrir história de {p.name} ↗</Link></p>
             </details>
           ))}
         </section>
@@ -487,6 +517,7 @@ export default function App() {
             <Route path="/personagens/:personagemId" element={<Character />} />
             <Route path="/fichas/:personagemId" element={<Character sheet />} />
             <Route path="/npcs" element={<Npcs />} />
+            <Route path="/npcs/:npcId" element={<Npc />} />
             <Route path="/criacao" element={<Creation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

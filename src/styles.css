@@ -1302,3 +1302,12 @@ details p {
     scroll-behavior: auto !important;
   }
 }
+
+.related-people { margin: 0 0 36px; }
+.related-people h2 { font-family: var(--serif); font-size: 24px; }
+.related-people ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px; }
+.related-people li { border: 1px solid var(--line); border-radius: 8px; }
+.related-people a { display: block; height: 100%; padding: 22px; border-radius: inherit; }
+.related-people a:hover, .related-people a:focus-visible { background: #ffffff08; }
+.related-people h3 { margin: 10px 0; font-family: var(--serif); font-size: 22px; }
+.related-people p { color: var(--muted); margin: 0; line-height: 1.6; }

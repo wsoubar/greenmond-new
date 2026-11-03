@@ -81,3 +81,7 @@ Aprovada a opção A: Nicholai conhece as trilhas e utiliza a região em reconhe
 ### Apresentação geral — ampliação autorizada
 
 Acrescentados três parágrafos sobre economia rural e tecnológica, memória histórica e contraste entre rotina mortal e presença dos Membros. Preservados integralmente o texto-base, as imagens, os mortais notáveis e a observação sobre Malkavianos e Gangrel. Não foram criados eventos ou vínculos políticos. As referências históricas permanecem como premissas do cenário legado, sem revisão historiográfica nesta alteração.
+
+## Navegação entre locais e pessoas
+
+`src/data/relacoes-locais.json` registra os oito vínculos aprovados nos seis locais. Os cartões levam às histórias dos personagens ou às novas páginas `/npcs/:npcId`, com tratamento de ID inexistente. O arquivo de relações é independente da extração do legado. Não foram inferidos vínculos adicionais por clã.
