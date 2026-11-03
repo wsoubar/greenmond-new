@@ -385,7 +385,7 @@ function Npcs() {
       {groups.map((g) => (
         <section className="clan-section" key={g.id}>
           <div className="clan-heading">
-            <img src={asset(g.image)} alt="" />
+            <div className="clan-heading__emblem">\n              <img src={asset(g.image)} alt="" />\n            </div>
             <h2>{g.title}</h2>
             <span>{g.people.length} figuras</span>
           </div>
