@@ -12,6 +12,18 @@
         "value": "É uma cidade de porte médio do estado americano da Carolina do Sul. Sua economia é baseada na agricultura/pecuária e mais recentemente também tem se destacado na área de serviços (tecnologia). Grande fornecedora de derivados de gado bovino e suíno.\nFundada no início do século XVII (1607) a cidade teve importância na participação no estopim da guerra de civil americana, sendo um dos principais Quarteis generais dos estados confederados, estados que apoiavam a escravidão e que se separaram dos estados unidos quando o abolicionista Abraham Lincoln se elegeu presidente em 1860. Um ano depois, tropas da cidade foram enviadas junto a tropas do sul no ataque a tropas federais no Forte Sumter em Charleston (Carolina do Sul). Desencadeando a guerra civil americana.\nDe volta aos dias de hoje temos um cidade com boa economia e poucos problemas sociais."
       },
       {
+        "type": "text",
+        "value": "A prosperidade de Greenmond tem duas paisagens. Nos campos e nas fazendas, a criação de gado e a produção de alimentos sustentam a continuidade de sua economia. No Centro, os serviços e a tecnologia representam um crescimento mais recente. Entre essas duas faces, a cidade conserva o porte de um lugar onde os nomes de pessoas, empresas e famílias ainda têm peso nas conversas sobre o futuro."
+      },
+      {
+        "type": "text",
+        "value": "Sua fundação em 1607 e sua participação na Guerra Civil fazem parte da memória da cidade. O passado confederado e a ligação com a escravidão pertencem a essa história, mesmo quando a atividade econômica e a tranquilidade do presente ocupam o primeiro plano. Para os Membros que atravessaram essas épocas, o tempo decorrido pode não ter a mesma distância que tem para os mortais."
+      },
+      {
+        "type": "text",
+        "value": "Depois do pôr do sol, Greenmond muda de ritmo. O movimento dos Jardins e das casas noturnas contrasta com as distâncias escuras da zona rural e com o isolamento do pântano ao norte. Por trás da rotina de uma cidade com boa economia e poucos problemas sociais, os Membros percorrem uma geografia própria, feita de territórios, encontros e interesses que passam despercebidos à maior parte dos habitantes. A influência de um clã pode marcar uma região sem determinar o destino de todos que passam por ela."
+      },
+      {
         "type": "image",
         "value": "images/cidade/gm-02.jpg"
       },
@@ -40,6 +52,14 @@
       {
         "type": "text",
         "value": "Mais moderno com seus setores de ciência e tecnologia são a área dos Brujah. Alguns Ventrue também se acomodam deste área."
+      },
+      {
+        "type": "text",
+        "value": "À noite, as fachadas modernas e as luzes dos setores de ciência e tecnologia dão ao Centro um ritmo diferente do restante de Greenmond. Entre o movimento das ruas e os edifícios de trabalho, a cidade parece olhar sempre para a próxima transformação. O brilho das vitrines e das janelas contrasta com os intervalos de sombra entre uma quadra e outra."
+      },
+      {
+        "type": "text",
+        "value": "A presença Brujah encontra nesse ambiente de mudança uma expressão própria: o Centro oferece um cenário para conversas incisivas, ideias em confronto e atenção ao que está por vir. Os Ventrue que também se acomodam na região lembram que modernização e interesse econômico podem ocupar o mesmo espaço. Essa convivência não torna cada encontro uma disputa, mas dá peso às palavras e às aparências."
       }
     ]
   },
@@ -54,6 +74,14 @@
       {
         "type": "text",
         "value": "São o centro cultural da cidade, com cinemas, teatros e uma galeria de arte. Esta área pertence aos Toreador."
+      },
+      {
+        "type": "text",
+        "value": "Nos Jardins, a noite se desenha nas entradas dos cinemas, nas portas dos teatros e na luz que recorta as obras da galeria de arte. O movimento do público alterna momentos de agitação e silêncio. Quando uma apresentação termina, as conversas parecem prolongar o espetáculo pelas ruas, enquanto as fachadas voltam lentamente à quietude."
+      },
+      {
+        "type": "text",
+        "value": "Em território Toreador, a experiência de ser visto pode ter tanta importância quanto aquilo que se veio contemplar. Um comentário sobre uma obra, uma pausa diante de uma vitrine ou a atenção dedicada a uma companhia oferecem espaço para observar gostos e maneiras. A influência do clã pode ser evocada nesse cuidado com a apresentação e na intensidade com que a beleza prende o olhar, sem que cada visitante conheça a sociedade que habita a noite."
       },
       {
         "type": "image",
@@ -74,6 +102,14 @@
         "value": "Os Tremere são mais vistos nas universidades, campus e cidades universitárias. Aparecem por aqui também um ou outro Brujah mais velho."
       },
       {
+        "type": "text",
+        "value": "Quando o movimento das aulas diminui, os campi revelam outra escala: corredores compridos, janelas isoladas ainda acesas e caminhos que parecem mais extensos entre os prédios. O ambiente acadêmico conserva os sinais da atividade do dia, mas o silêncio noturno convida a uma atenção mais demorada a portas, passos e vozes."
+      },
+      {
+        "type": "text",
+        "value": "A presença frequente dos Tremere acrescenta à paisagem universitária uma atmosfera de reserva e estudo persistente. O conhecimento oferece uma linguagem para encontros discretos e perguntas cuidadosamente formuladas, sem que isso faça de toda sala um segredo do clã. Um ou outro Brujah mais velho também passa por esses espaços; a vida intelectual da região não se reduz a uma única presença vampírica."
+      },
+      {
         "type": "image",
         "value": "images/cidade/gm-07.jpg"
       }
@@ -90,6 +126,14 @@
       {
         "type": "text",
         "value": "A área rural, onde ficam as grandes fazendas e as indústrias alimentícias são áreascomandados pelos Ventrue. Sabe-se que gangrels também se aventuram por lá."
+      },
+      {
+        "type": "text",
+        "value": "Fora das ruas mais iluminadas, Greenmond se estende em campos, fazendas e instalações da indústria alimentícia. À noite, as distâncias ganham força: luzes espalhadas pela paisagem marcam construções separadas por grandes trechos escuros. O cenário recorda que parte importante da riqueza da cidade nasce longe de suas vitrines e edifícios modernos."
+      },
+      {
+        "type": "text",
+        "value": "O comando Ventrue pode ser sentido na relação entre terra, produção e continuidade econômica. Para ambientar uma cena, o peso desse território está menos na ostentação que na dimensão do que ele sustenta: propriedades, trabalho e abastecimento. Os Gangrel que se aventuram pela região acrescentam outra forma de percorrer a paisagem, sem que sua passagem implique domínio ou conflito estabelecido com os senhores dessas áreas."
       },
       {
         "type": "image",
@@ -110,6 +154,14 @@
         "value": "O pântano é conhecido refúgio dos Nosferatu. Ficando no limite norte da cidade."
       },
       {
+        "type": "text",
+        "value": "No limite norte de Greenmond, o pântano oferece uma noite de contornos imprecisos. A umidade, a vegetação e os reflexos sobre a água dificultam distinguir profundidade e distância. Pequenos ruídos parecem próximos demais, enquanto o caminho de volta à cidade pode parecer cada vez mais remoto a quem não conhece o terreno."
+      },
+      {
+        "type": "text",
+        "value": "Como refúgio conhecido dos Nosferatu, o lugar favorece uma atmosfera de ocultação e cautela. A influência do clã pode ser sugerida pela sensação de que o visitante enxerga menos do que gostaria e se expõe mais do que percebe. A própria paisagem basta para sustentar essa inquietação, sem revelar esconderijos, passagens ou habitantes que o cenário ainda não descreveu."
+      },
+      {
         "type": "image",
         "value": "images/cidade/gm-11.jpg"
       }
@@ -128,6 +180,18 @@
         "value": "O centro do poder"
       },
       {
+        "type": "text",
+        "value": "O Palácio das Águas abriga a corte de Lucius Wilber Smith. É ali que o príncipe recebe os Membros e conduz os assuntos de seu governo. Entre uma audiência e outra, a espera também faz parte da política: quem procura o centro do poder precisa medir as palavras antes de chegar à presença de Lucius."
+      },
+      {
+        "type": "text",
+        "value": "Norman Brown, o atual xerife, coordena a segurança do Palácio. Sua presença dá forma à autoridade que protege a corte, mas também revela o alcance dos Ventrue dentro de uma estrutura governada por um príncipe Brujah. Frank Baker acompanha os assuntos do local por intermédio de Norman, mantendo-se próximo das decisões sem precisar ocupar o centro das audiências."
+      },
+      {
+        "type": "text",
+        "value": "Aqui, servir ao governo e defender os interesses de um clã são compromissos que podem pesar sobre a mesma pessoa. Lucius ocupa a posição de comando; Norman guarda suas portas; Baker acompanha o que se passa além delas. Para quem chega ao Palácio, a atenção recebida nunca depende apenas do que se pretende dizer, mas também de quem estará ouvindo."
+      },
+      {
         "type": "image",
         "value": "images/cidade/gm-13.jpg"
       }
@@ -140,6 +204,18 @@
       {
         "type": "image",
         "value": "images/cidade/gm-14.jpg"
+      },
+      {
+        "type": "text",
+        "value": "O Gran Cassino reúne o movimento das mesas, a expectativa de uma boa mão e conversas que continuam depois de encerradas as apostas. Ao redor do jogo, desconhecidos encontram motivos para dividir uma noite. Entre os frequentadores, nem todos procuram apenas o dinheiro que podem levar ao sair."
+      },
+      {
+        "type": "text",
+        "value": "Hannibal Trautmam frequenta suas mesas com a experiência de quem já ganhou muito dinheiro no pôquer. Recém-chegado aos negócios de Greenmond, o Coronel também encontra ali oportunidades de conhecer investidores e possíveis parceiros. Uma conversa entre partidas pode lhe dizer tanto sobre uma proposta quanto a maneira como seu interlocutor reage a uma perda."
+      },
+      {
+        "type": "text",
+        "value": "Sua relação com o Gran Cassino é a de um frequentador interessado no jogo e nas pessoas que ele aproxima. Hannibal não é proprietário do estabelecimento, e sua presença não faz do lugar um domínio Ventrue. Para ele, as mesas oferecem uma porta de entrada para a vida econômica da cidade, onde reputação e confiança precisam ser construídas a cada encontro."
       }
     ]
   },
@@ -154,6 +230,18 @@
       {
         "type": "image",
         "value": "images/cidade/gm-16.jpg"
+      },
+      {
+        "type": "text",
+        "value": "O Sunset Garden é a boate de Jason P. Adams, a maior atração da vida noturna de Greenmond. O público jovem e descolado encontra ali o ambiente que seu proprietário conhece bem: música, movimento e oportunidades de aproximação. Jason circula entre os frequentadores com o cuidado de quem sabe que a reputação de uma casa também depende da atenção que seu dono oferece."
+      },
+      {
+        "type": "text",
+        "value": "Foi com o Sunset Garden que Jason conquistou recursos, fama e prestígio entre os Membros. Seu reconhecimento como Elísio acrescenta outra dimensão às noites do clube: vampiros encontram motivos para frequentá-lo, e a presença deles oferece ao anfitrião informação e contatos. A segurança proporcionada por essa condição é parte importante do valor da casa para seu proprietário e seus visitantes."
+      },
+      {
+        "type": "text",
+        "value": "Entre os mortais que frequentam a boate, Jason mantém suas oportunidades de alimentação discreta. Seu guarda-costas trabalha como leão de chácara, enquanto uma hacker o auxilia nas questões que exigem conhecimento de computadores. Eventualmente, ele também oferece refúgio a outros vampiros em troca de favores. Entre uma conversa e outra, o dono da casa constrói relações que podem continuar muito depois de a música terminar."
       }
     ]
   },
@@ -168,6 +256,18 @@
       {
         "type": "image",
         "value": "images/cidade/gm-18.jpg"
+      },
+      {
+        "type": "text",
+        "value": "O The Skull Pub é o bar de rock de Alice Monteir. Sob os arcos de pedra, entre caveiras e mesas próximas, a música ocupa o espaço e dá às conversas um ritmo próprio. A decoração faz da morte parte do ambiente, mesmo para os clientes que desconhecem a natureza de sua proprietária."
+      },
+      {
+        "type": "text",
+        "value": "Alice aprendeu a se adaptar muito antes do Abraço e continua fazendo isso à frente do pub. O estabelecimento marca uma nova etapa de sua trajetória: de antiga trabalhadora do bordel local a dona de uma casa onde recebe o público em seus próprios termos. Sua presença liga o lugar aos Brujah por uma história pessoal, sem estabelecer domínio do clã sobre o pub ou seus arredores."
+      },
+      {
+        "type": "text",
+        "value": "A ajuda que permitiu a Alice chegar até aqui permanece cercada de perguntas. Sabe-se que veio de um vampiro rico e influente da cidade; suspeita-se que seja de fora de seu clã, mas sua identidade continua desconhecida. Entre os Membros que conhecem essa história, o nome do The Skull Pub pode trazer à conversa tanto sua proprietária quanto a dúvida sobre quem a apoiou."
       }
     ]
   },
@@ -182,6 +282,18 @@
       {
         "type": "image",
         "value": "images/cidade/gm-20.jpg"
+      },
+      {
+        "type": "text",
+        "value": "No Bairro Francês, as varandas dos casarões acompanham ruas que continuam movimentadas depois do anoitecer. A luz das casas noturnas alcança as calçadas, e as conversas se misturam à música que escapa pelas portas. Entre a passagem do público e os intervalos de uma apresentação, o bairro oferece muitas maneiras de participar da noite ou simplesmente observá-la."
+      },
+      {
+        "type": "text",
+        "value": "Muriel Schürer frequenta os pequenos palcos e as casas noturnas da região. Sua antiga ambição de ser atriz ainda encontra espaço no interesse pelas apresentações, pela presença dos artistas e pelo que acontece entre uma cena e outra. Ali, ela pode se aproximar do ofício que desejava exercer, sem que sua história se resuma à violência que sofreu."
+      },
+      {
+        "type": "text",
+        "value": "Para quem a procura, o Bairro Francês oferece a possibilidade de encontrá-la acompanhando uma apresentação ou permanecendo por perto quando o público começa a sair. Sua relação com esses espaços nasce do gosto pelo palco e da vontade de estar próxima desse mundo. Ela não é apresentada como proprietária das casas, e sua frequência não estabelece domínio Malkavian sobre o bairro."
       }
     ]
   },
@@ -192,6 +304,18 @@
       {
         "type": "text",
         "value": "O campo de caça"
+      },
+      {
+        "type": "text",
+        "value": "Conhecida como o campo de caça, Holly Shelter Game Land oferece uma noite distante do movimento das ruas. Entre as trilhas, a vegetação interrompe a visão e torna cada mudança de direção mais importante. Reconhecer o caminho exige atenção ao terreno; depois de algum tempo sob a escuridão, uma passagem familiar pode parecer igual a tantas outras."
+      },
+      {
+        "type": "text",
+        "value": "Nicholai Itchenko conhece as trilhas da região e utiliza esse conhecimento em trabalhos de reconhecimento e condução. Observar sinais de passagem, avaliar uma travessia e encontrar uma rota de saída fazem parte do serviço que o tornou útil aos Membros de Greenmond. Para ele, entrar no campo de caça também significa saber como trazer de volta quem aceitou guiar."
+      },
+      {
+        "type": "text",
+        "value": "Sua ligação com Holly Shelter Game Land vem desse trabalho e da experiência acumulada no terreno. Quando uma busca ou uma retirada exige discrição, conhecer o percurso pode valer mais que chegar depressa. Nicholai não reivindica domínio sobre a região: sua palavra compromete o guia com aqueles que conduz, sem lhe dar autoridade sobre os demais frequentadores."
       },
       {
         "type": "image",

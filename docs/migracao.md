@@ -49,3 +49,35 @@ Nicholai permanece Gangrel e jogador Wagner Barbosa. Idade adotada: 175 anos tot
 Ficha orientada a sobrevivência e combate: 8ª geração, Metamorfose 5, Fortitude 4, Animalismo 1, Força de Vontade 9 e Humanidade 7. Atributos 8/6/4 além dos pontos iniciais; Habilidades 15/11/6; Disciplinas 7; Antecedentes 10, incluindo Status 1; Virtudes 7 além dos pontos iniciais. Bônus: 5 + 16 + 21 + 6 + 2 + 5 = 55. Sem Qualidades, Defeitos ou experiência extra. Comparabilidade de poder é avaliação por especialização, não equivalência comprovada das fichas antigas, cujas contagens divergem.
 
 A edição não está declarada no projeto. Custos por ponto assumidos e explicitados na ficha: atributo 5, habilidade 2, disciplina 7, antecedente 1, humanidade 2, vontade 1. Não foram inventados poderes de nível superior a 5, rituais ou regras de equipamento. Efeitos das Disciplinas e fraqueza de clã dependem da edição escolhida pelo narrador. A consulta externa ao livro V20 não pôde ser concluída devido ao limite de tamanho do PDF; as convenções acima são premissas explícitas, não validação editorial da edição.
+
+## Ampliação dos territórios
+
+Os cinco locais com associação de clã no acervo receberam dois parágrafos de atmosfera e influência, preservando os blocos originais. A autoria nova está em `content/cidade-descricoes.json`; a migração insere os textos após a primeira descrição, por ID, sem editar o legado. Universidades mantém presença Tremere, sem estabelecer domínio exclusivo. Os demais locais permanecem inalterados.
+
+### Palácio das Águas — escolha aprovada
+
+Aprovada a opção B: sede da corte de Lucius Wilber Smith, segurança coordenada pelo xerife Norman Brown e acompanhamento político de Frank Baker por intermédio dele. Descrição adicionada à fonte autoral e aos dados gerados; não estabelece propriedade Ventrue nem condição de Elísio.
+
+### Gran Cassino — escolha aprovada
+
+Aprovada a opção A: Hannibal Trautmam frequenta as mesas e busca investidores e parceiros, sem propriedade ou domínio de clã atribuídos. Locais sem texto legado recebem as ampliações após os blocos existentes.
+
+### Sunset Garden — escolha aprovada
+
+Aprovada a opção A: Sunset Garden identifica a boate de Jason P. Adams e o Elísio já descritos em sua história. Os vínculos com prestígio, informação, alimentação, auxiliares e refúgio em troca de favores vêm do acervo existente. Não estabelece domínio territorial Tremere nem novas regras de Elísio.
+
+### The Skull Pub — escolha aprovada
+
+Aprovada a opção A: The Skull Pub identifica o bar de rock de Alice Monteir. Preservada a ajuda de um vampiro rico e influente de identidade desconhecida e a suspeita de que pertença a outro clã. Não atribui domínio territorial Brujah nem condição de Elísio.
+
+### Bairro Francês — escolha aprovada
+
+Aprovada a opção B: Muriel Schürer frequenta pequenos palcos e casas noturnas, mantendo a ligação com sua ambição de ser atriz. Não estabelece carreira atual, propriedade de estabelecimentos ou domínio Malkavian.
+
+### Holly Shelter Game Land — escolha aprovada
+
+Aprovada a opção A: Nicholai conhece as trilhas e utiliza a região em reconhecimento e condução, sem domínio territorial ou regras novas de caça e alimentação. Concluídas as ampliações dos seis locais submetidos à escolha do usuário.
+
+### Apresentação geral — ampliação autorizada
+
+Acrescentados três parágrafos sobre economia rural e tecnológica, memória histórica e contraste entre rotina mortal e presença dos Membros. Preservados integralmente o texto-base, as imagens, os mortais notáveis e a observação sobre Malkavianos e Gangrel. Não foram criados eventos ou vínculos políticos. As referências históricas permanecem como premissas do cenário legado, sem revisão historiográfica nesta alteração.

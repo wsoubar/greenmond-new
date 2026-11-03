@@ -25,6 +25,12 @@ for name in ['cidade','criacao']:
             if match.group(1): blocks.append({'type':'image','value':match.group(1).replace('./img/','images/')})
             else: blocks.append({'type':'heading' if match.group(2)=='h3' else 'text','value':text(match.group(3))})
         result.append({'id':slug(text(title)),'title':text(title),'blocks':blocks})
+    if name == 'cidade':
+        additions = json.loads(Path('content/cidade-descricoes.json').read_text())
+        for place_id, paragraphs in additions.items():
+            place = next(place for place in result if place['id'] == place_id)
+            index = next((i + 1 for i, block in enumerate(place['blocks']) if block['type'] == 'text'), len(place['blocks']))
+            place['blocks'][index:index] = [{'type': 'text', 'value': paragraph} for paragraph in paragraphs]
     save(name+'.json',result)
 groups=[]
 for card in cards('npcs'):
