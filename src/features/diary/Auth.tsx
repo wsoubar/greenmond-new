@@ -1,3 +1,4 @@
+import { ActionButton, ActionLink } from "../../components/Actions";
 import {
   createContext,
   useContext,
@@ -6,7 +7,6 @@ import {
   type ReactNode,
 } from "react";
 import type { Session } from "@supabase/supabase-js";
-import { Link } from "react-router";
 import { supabase } from "./client";
 import { errorMessage, getProfile, type Profile } from "./api";
 type AuthState = {
@@ -121,9 +121,9 @@ export function Unavailable() {
         A conexão do diário ainda não foi configurada. O restante do acervo
         continua disponível.
       </p>
-      <Link className="text-link" to="/">
-        Explorar Greenmond →
-      </Link>
+      <ActionLink icon="compass" className="text-link" to="/">
+        Explorar Greenmond
+      </ActionLink>
     </div>
   );
 }
@@ -135,9 +135,9 @@ export function PrivateDiary({ children }: { children: ReactNode }) {
     return (
       <div role="alert">
         <p>{auth.error}</p>
-        <button className="button" onClick={auth.reload}>
+        <ActionButton icon="refresh" className="button" onClick={auth.reload}>
           Tentar novamente
-        </button>
+        </ActionButton>
       </div>
     );
   if (!auth.session)
@@ -145,9 +145,9 @@ export function PrivateDiary({ children }: { children: ReactNode }) {
       <div className="diary-notice">
         <h1>Entre para escrever</h1>
         <p>O diário recebe contribuições dos participantes autorizados.</p>
-        <Link className="button" to="/entrar">
+        <ActionLink icon="login" className="button" to="/entrar">
           Entrar
-        </Link>
+        </ActionLink>
       </div>
     );
   if (!auth.profile)
@@ -169,11 +169,17 @@ export function AccountLink() {
   const [busy, setBusy] = useState(false);
   return (
     <div className="diary-account">
-      <Link className="text-link" to={auth.session ? "/meu-diario" : "/entrar"}>
+      <ActionLink
+        icon={auth.session ? "book" : "login"}
+        className="text-link"
+        to={auth.session ? "/meu-diario" : "/entrar"}
+      >
         {auth.session ? "Meu diário" : "Entrar para escrever"}
-      </Link>
+      </ActionLink>
       {auth.session && (
-        <button
+        <ActionButton
+          icon="logout"
+          loading={busy}
           type="button"
           disabled={busy}
           onClick={async () => {
@@ -190,7 +196,7 @@ export function AccountLink() {
           }}
         >
           Sair da conta
-        </button>
+        </ActionButton>
       )}
       {error && <p role="alert">{error}</p>}
     </div>

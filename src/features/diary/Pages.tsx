@@ -1,3 +1,4 @@
+import { ActionButton, ActionLink } from "../../components/Actions";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   Link,
@@ -52,9 +53,9 @@ function LoadError({ message, retry }: { message: string; retry: () => void }) {
   return (
     <div className="diary-notice" role="alert">
       <p>{message}</p>
-      <button className="button" onClick={retry}>
+      <ActionButton icon="refresh" className="button" onClick={retry}>
         Tentar novamente
-      </button>
+      </ActionButton>
     </div>
   );
 }
@@ -182,9 +183,9 @@ function List({ privateView = false }: { privateView?: boolean }) {
       <div className="diary-toolbar">
         <AccountLink />
         {privateView && (
-          <Link className="button" to="/meu-diario/novo">
-            Nova entrada ↗
-          </Link>
+          <ActionLink icon="plus" className="button" to="/meu-diario/novo">
+            Nova entrada
+          </ActionLink>
         )}
       </div>
       <div className="filters">
@@ -231,7 +232,8 @@ function List({ privateView = false }: { privateView?: boolean }) {
             />
           )}
           <div className="diary-pagination" aria-label="Paginação do diário">
-            <button
+            <ActionButton
+              icon="arrowLeft"
               disabled={!page}
               onClick={() =>
                 setParams({
@@ -240,10 +242,11 @@ function List({ privateView = false }: { privateView?: boolean }) {
                 })
               }
             >
-              ← Anterior
-            </button>
+              Anterior
+            </ActionButton>
             <span>Página {page + 1}</span>
-            <button
+            <ActionButton
+              icon="arrowRight"
               disabled={(page + 1) * 20 >= (result.value?.total ?? 0)}
               onClick={() =>
                 setParams({
@@ -252,8 +255,8 @@ function List({ privateView = false }: { privateView?: boolean }) {
                 })
               }
             >
-              Próxima →
-            </button>
+              Próxima
+            </ActionButton>
           </div>
         </>
       )}
@@ -276,16 +279,16 @@ function PublicDetail({ id }: { id: string }) {
       <>
         <Header title="Publicação não encontrada" />
         <p>A entrada não existe ou não está publicada.</p>
-        <Link className="text-link" to="/diario">
-          ← Diário
-        </Link>
+        <ActionLink icon="arrowLeft" className="text-link" to="/diario">
+          Diário
+        </ActionLink>
       </>
     );
   return (
     <>
-      <Link className="text-link" to="/diario">
-        ← Diário
-      </Link>
+      <ActionLink icon="arrowLeft" className="text-link" to="/diario">
+        Diário
+      </ActionLink>
       <Header title={entry.title}>
         {labels[entry.kind]} · {diaryDate(entry.published_at)}
       </Header>
@@ -295,9 +298,13 @@ function PublicDetail({ id }: { id: string }) {
         {entry.session_ref ? ` · ${entry.session_ref}` : ""}
       </p>
       {entry.character_id && (
-        <Link className="text-link" to={`/personagens/${entry.character_id}`}>
-          Conhecer {entry.character_name} ↗
-        </Link>
+        <ActionLink
+          icon="arrowUpRight"
+          className="text-link"
+          to={`/personagens/${entry.character_id}`}
+        >
+          Conhecer {entry.character_name}
+        </ActionLink>
       )}
       <div className="reading diary-body">
         <p>{entry.body}</p>
@@ -310,6 +317,7 @@ export function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   if (!supabase) return <Unavailable />;
@@ -355,20 +363,63 @@ export function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
-        <label>
-          Senha
-          <input
-            type="password"
-            required
-            autoComplete="current-password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
+        <div className="diary-password-field">
+          <label>
+            Senha
+            <input
+              id="login-password"
+              type={showPassword ? "text" : "password"}
+              required
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+          <button
+            type="button"
+            className="diary-password-toggle"
+            aria-controls="login-password"
+            aria-label={showPassword ? "Ocultar senha" : "Mostrar senha"}
+            aria-pressed={showPassword}
+            title={showPassword ? "Ocultar senha" : "Mostrar senha"}
+            onClick={() => setShowPassword((visible) => !visible)}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              focusable="false"
+            >
+              {showPassword ? (
+                <>
+                  <path d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8" />
+                  <path d="M9.9 5.2A11.8 11.8 0 0 1 12 5c7 0 10 7 10 7a17 17 0 0 1-3 4M6.6 6.6A18 18 0 0 0 2 12s3 7 10 7a11 11 0 0 0 5.4-1.4" />
+                </>
+              ) : (
+                <>
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </>
+              )}
+            </svg>
+          </button>
+        </div>
         {error && <p role="alert">{error}</p>}
-        <button className="button" disabled={busy}>
+        <ActionButton
+          icon="login"
+          type="submit"
+          loading={busy}
+          className="button"
+          disabled={busy}
+        >
           {busy ? "Entrando…" : "Entrar"}
-        </button>
+        </ActionButton>
         <p className="diary-help">
           Para receber acesso ou recuperar sua senha, procure o narrador.
         </p>
@@ -401,7 +452,9 @@ function EditorLoader({ id }: { id: string }) {
     return (
       <>
         <Header title="Entrada não encontrada" />
-        <Link to="/meu-diario">← Meu diário</Link>
+        <ActionLink icon="arrowLeft" to="/meu-diario">
+          Meu diário
+        </ActionLink>
       </>
     );
   return (
@@ -501,9 +554,9 @@ function EditorForm({
   }
   return (
     <>
-      <Link className="text-link" to="/meu-diario">
-        ← Escrita e revisão
-      </Link>
+      <ActionLink icon="arrowLeft" className="text-link" to="/meu-diario">
+        Escrita e revisão
+      </ActionLink>
       <Header title={entry ? entry.title : "Nova entrada"}>
         {entry
           ? `${labels[entry.status]} · Por ${entry.author_name}`
@@ -516,7 +569,9 @@ function EditorForm({
             : !editable
               ? "Este texto está disponível apenas para leitura neste estado."
               : "Salve as alterações antes de sair."}{" "}
-          <Link to={`/meu-diario/${entry.id}`}>Endereço desta entrada ↗</Link>
+          <ActionLink icon="arrowUpRight" to={`/meu-diario/${entry.id}`}>
+            Endereço desta entrada
+          </ActionLink>
         </p>
       )}
       {blocker.state === "blocked" && (
@@ -532,12 +587,17 @@ function EditorForm({
               ? "Uma gravação está em andamento. Aguarde a conclusão."
               : "As alterações não salvas serão perdidas."}
           </p>
-          <button autoFocus onClick={() => blocker.reset()}>
+          <ActionButton icon="edit" autoFocus onClick={() => blocker.reset()}>
             Continuar escrevendo
-          </button>
-          <button disabled={busy} onClick={() => blocker.proceed()}>
+          </ActionButton>
+          <ActionButton
+            icon="trash"
+            tone="danger"
+            disabled={busy}
+            onClick={() => blocker.proceed()}
+          >
             Descartar alterações e sair
-          </button>
+          </ActionButton>
         </div>
       )}
       {error && (
@@ -631,14 +691,21 @@ function EditorForm({
             {form.body.length.toLocaleString("pt-BR")} / 50.000 caracteres ·
             Texto simples
           </small>
-          <button className="button" disabled={!dirty && !!entry}>
+          <ActionButton
+            icon="save"
+            type="submit"
+            loading={busy}
+            className="button"
+            disabled={!dirty && !!entry}
+          >
             {busy ? "Salvando…" : "Salvar texto"}
-          </button>
+          </ActionButton>
         </fieldset>
       </form>
       <div className="diary-actions">
         {(!entry || entry.status === "draft") && editable && (
-          <button
+          <ActionButton
+            icon="send"
             className="button"
             disabled={
               busy ||
@@ -649,17 +716,18 @@ function EditorForm({
             onClick={() => void action("submit")}
           >
             Enviar para revisão
-          </button>
+          </ActionButton>
         )}
         {narrator && entry?.status === "review" && (
           <>
-            <button
+            <ActionButton
+              icon="check"
               className="button"
               disabled={busy}
               onClick={() => void action("publish")}
             >
               Publicar entrada
-            </button>
+            </ActionButton>
             <label>
               Orientação para ajustes
               <textarea
@@ -670,28 +738,41 @@ function EditorForm({
                 onChange={(e) => setNote(e.target.value)}
               />
             </label>
-            <button
+            <ActionButton
+              icon="edit"
               disabled={busy || !note.trim()}
               onClick={() => void action("request_changes")}
             >
               Solicitar ajustes
-            </button>
+            </ActionButton>
           </>
         )}
         {narrator && entry?.status === "published" && (
-          <button disabled={busy} onClick={() => void action("archive")}>
+          <ActionButton
+            icon="archive"
+            disabled={busy}
+            onClick={() => void action("archive")}
+          >
             Retirar do ar
-          </button>
+          </ActionButton>
         )}
         {narrator && entry?.status === "archived" && (
-          <button disabled={busy} onClick={() => void action("restore")}>
+          <ActionButton
+            icon="restore"
+            disabled={busy}
+            onClick={() => void action("restore")}
+          >
             Restaurar como rascunho
-          </button>
+          </ActionButton>
         )}
         {entry?.status === "published" && (
-          <Link className="text-link" to={`/diario/${entry.id}`}>
-            Ver publicação ↗
-          </Link>
+          <ActionLink
+            icon="arrowUpRight"
+            className="text-link"
+            to={`/diario/${entry.id}`}
+          >
+            Ver publicação
+          </ActionLink>
         )}
       </div>
       {reviews.length > 0 && (
@@ -706,13 +787,14 @@ function EditorForm({
         </section>
       )}
       {entry && !dirty && (
-        <button
+        <ActionButton
+          icon="arrowLeft"
           type="button"
           className="text-link"
           onClick={() => navigate("/meu-diario")}
         >
           Voltar à lista
-        </button>
+        </ActionButton>
       )}
     </>
   );

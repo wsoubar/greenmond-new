@@ -1,3 +1,5 @@
+import { Icon } from "./components/Icon";
+import { ActionLink } from "./components/Actions";
 import { useEffect, useState } from "react";
 import {
   createHashRouter,
@@ -72,9 +74,9 @@ function NotFound() {
       >
         O endereço ou registro solicitado não existe.
       </Heading>
-      <Link className="button" to="/">
-        Voltar ao início →
-      </Link>
+      <ActionLink icon="arrowLeft" className="button" to="/">
+        Voltar ao início
+      </ActionLink>
     </>
   );
 }
@@ -120,12 +122,12 @@ function Home() {
             que se escondem sob as luzes da cidade.
           </p>
           <div className="hero-actions">
-            <Link className="button" to="/cidade">
-              Explorar a cidade <span aria-hidden="true">↗</span>
-            </Link>
-            <Link className="hero-secondary" to="/personagens">
-              Conhecer os personagens <span aria-hidden="true">→</span>
-            </Link>
+            <ActionLink icon="compass" className="button" to="/cidade">
+              Explorar a cidade
+            </ActionLink>
+            <ActionLink icon="users" className="hero-secondary" to="/personagens">
+              Conhecer os personagens
+            </ActionLink>
           </div>
         </div>
         <div className="hero-visual">
@@ -167,9 +169,9 @@ function Home() {
             Cada lugar, <em>uma história.</em>
           </h2>
         </div>
-        <Link className="text-link" to="/cidade">
-          Explorar todos os locais <span aria-hidden="true">↗</span>
-        </Link>
+        <ActionLink icon="compass" className="text-link" to="/cidade">
+          Explorar todos os locais
+        </ActionLink>
       </section>
       <div className="place-grid home-places">
         {cidade.slice(1, 4).map((place) => (
@@ -188,9 +190,9 @@ function Home() {
             Clãs, alianças e histórias que atravessam a cidade. Conheça aqueles
             que fazem parte de Greenmond.
           </p>
-          <Link className="text-link" to="/npcs">
-            Conhecer as figuras da cidade ↗
-          </Link>
+          <ActionLink icon="users" className="text-link" to="/npcs">
+            Conhecer as figuras da cidade
+          </ActionLink>
         </div>
         <div className="clan-gallery">
           {npcs.map((group) => (
@@ -215,7 +217,7 @@ function Home() {
             ser conhecidas.
           </h2>
           <b>
-            Encontre os personagens <span aria-hidden="true">↗</span>
+            Encontre os personagens <Icon name="arrowUpRight" />
           </b>
         </Link>
         <Link to="/criacao">
@@ -226,7 +228,7 @@ function Home() {
             pode ser sua.
           </h2>
           <b>
-            Crie seu personagem <span aria-hidden="true">↗</span>
+            Crie seu personagem <Icon name="arrowUpRight" />
           </b>
         </Link>
       </div>
@@ -269,9 +271,9 @@ function Place() {
   const place = cidade.find((p) => p.id === localId);
   return place ? (
     <>
-      <Link className="text-link" to="/cidade">
-        ← A cidade
-      </Link>
+      <ActionLink icon="arrowLeft" className="text-link" to="/cidade">
+        A cidade
+      </ActionLink>
       <Heading label="Lugares de Greenmond" title={place.title} />
       {relatedPeople(place.id).length > 0 && (
         <section className="related-people" aria-labelledby="related-heading">
@@ -281,7 +283,7 @@ function Place() {
               <li key={person.href}>
                 <Link to={person.href}>
                   <span className="eyebrow">{person.clan}</span>
-                  <h3>{person.name} <span aria-hidden="true">↗</span></h3>
+                  <h3>{person.name} <Icon name="arrowUpRight" /></h3>
                   <p>{person.role}</p>
                 </Link>
               </li>
@@ -340,7 +342,7 @@ function Characters() {
             <p className="eyebrow">{p.cla}</p>
             <h2>{p.nome}</h2>
             <p>Jogador: {p.jogador}</p>
-            <span className="text-link">Conheça a história →</span>
+            <span className="text-link"><Icon name="book" />Conheça a história</span>
           </Link>
         ))}
       </div>
@@ -360,7 +362,7 @@ function RelatedPlaces({ type, id }: { type: "personagem" | "npc"; id: string })
       <h2 id="places-heading">Locais relacionados</h2>
       <ul>{places.map((place) => (
         <li key={place.href}><Link to={place.href}>
-          <h3>{place.title} <span aria-hidden="true">↗</span></h3>
+          <h3>{place.title} <Icon name="arrowUpRight" /></h3>
           <p>{place.role}</p>
         </Link></li>
       ))}</ul>
@@ -388,7 +390,7 @@ function Search() {
         return entries.length ? <section className="search-results" key={category}>
           <h2>{category} <span>({entries.length})</span></h2>
           <ul>{entries.map((entry) => <li key={entry.href}>
-            <Link to={entry.href}><h3>{entry.title} <span aria-hidden="true">↗</span></h3><p>{entry.excerpt}</p></Link>
+            <Link to={entry.href}><h3>{entry.title} <Icon name="arrowUpRight" /></h3><p>{entry.excerpt}</p></Link>
           </li>)}</ul>
         </section> : null;
       })}
@@ -402,9 +404,9 @@ function Character({ sheet = false }: { sheet?: boolean }) {
   const ficha = fichas.find((f) => f.personagemId === p.id);
   return (
     <>
-      <Link className="text-link" to={`/personagens${sheet ? "/" + p.id : ""}`}>
-        ← {sheet ? "História do personagem" : "Personagens"}
-      </Link>
+      <ActionLink icon="arrowLeft" className="text-link" to={`/personagens${sheet ? "/" + p.id : ""}`}>
+        {sheet ? "História do personagem" : "Personagens"}
+      </ActionLink>
       <Heading label={`${p.cla} · ${p.jogador}`} title={p.nome} />
       {!sheet && <RelatedPlaces type="personagem" id={p.id} />}
       <div className="character-banner">
@@ -416,9 +418,9 @@ function Character({ sheet = false }: { sheet?: boolean }) {
             {sheet ? "Ficha do personagem" : "História do personagem"}
           </p>
           {!sheet && ficha && (
-            <Link className="text-link" to={`/fichas/${p.id}`}>
-              Consultar ficha ↗
-            </Link>
+            <ActionLink icon="file" className="text-link" to={`/fichas/${p.id}`}>
+              Consultar ficha
+            </ActionLink>
           )}
         </div>
       </div>
@@ -439,7 +441,7 @@ function Npc() {
   if (!person || !group) return <NotFound />;
   return (
     <>
-      <Link className="text-link" to="/npcs">← Figuras da cidade</Link>
+      <ActionLink icon="arrowLeft" className="text-link" to="/npcs">Figuras da cidade</ActionLink>
       <Heading label={`NPC · ${group.title}`} title={person.name} />
       <RelatedPlaces type="npc" id={person.id} />
       <div className="reading"><p>{person.description}</p></div>
@@ -482,7 +484,7 @@ function Npcs() {
           {g.people.map((p) => (
             <details key={p.id}>
               <summary>{p.name}</summary>
-              <p>{p.description}<br /><Link className="text-link" to={`/npcs/${p.id}`}>Abrir história de {p.name} ↗</Link></p>
+              <p>{p.description}<br /><ActionLink icon="book" className="text-link" to={`/npcs/${p.id}`}>Abrir história de {p.name}</ActionLink></p>
             </details>
           ))}
         </section>
@@ -534,7 +536,7 @@ export function AppShell() {
           aria-controls="navigation"
           onClick={() => setOpen(!open)}
         >
-          {open ? "Fechar menu" : "Abrir menu"}
+          <Icon name={open ? "close" : "menu"} />{open ? "Fechar menu" : "Abrir menu"}
         </button>
         <nav
           id="navigation"
@@ -551,7 +553,7 @@ export function AppShell() {
             >
               <span className="nav-number">0{i + 1}</span>
               {label}
-              <span className="nav-arrow">↗</span>
+              <Icon name="arrowUpRight" className="nav-arrow" />
             </NavLink>
           ))}
         </nav>

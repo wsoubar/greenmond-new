@@ -1,3 +1,5 @@
+import { Icon } from "../../components/Icon";
+import { ActionButton } from "../../components/Actions";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { supabase } from "./client";
@@ -55,9 +57,9 @@ export function DiarySearch({ query }: { query: string }) {
       ) : state.error ? (
         <div role="alert">
           <p>{state.error} A busca local continua disponível.</p>
-          <button onClick={() => setAttempt((v) => v + 1)}>
+          <ActionButton icon="refresh" onClick={() => setAttempt((v) => v + 1)}>
             Tentar novamente
-          </button>
+          </ActionButton>
         </div>
       ) : (
         <>
@@ -68,7 +70,7 @@ export function DiarySearch({ query }: { query: string }) {
             {state.results.map((entry) => (
               <li key={entry.id}>
                 <Link to={`/diario/${entry.id}`}>
-                  <h3>{entry.title} ↗</h3>
+                  <h3>{entry.title} <Icon name="arrowUpRight" /></h3>
                   <p>
                     {entry.body}
                     {entry.body.length >= 220 ? "…" : ""}
@@ -79,18 +81,23 @@ export function DiarySearch({ query }: { query: string }) {
           </ul>
           {(page > 0 || (state.results[0]?.total_count ?? 0) > 20) && (
             <div className="diary-pagination">
-              <button disabled={!page} onClick={() => setPage(page - 1)}>
-                ← Anterior
-              </button>
+              <ActionButton
+                icon="arrowLeft"
+                disabled={!page}
+                onClick={() => setPage(page - 1)}
+              >
+                Anterior
+              </ActionButton>
               <span>Página {page + 1}</span>
-              <button
+              <ActionButton
+                icon="arrowRight"
                 disabled={
                   (page + 1) * 20 >= (state.results[0]?.total_count ?? 0)
                 }
                 onClick={() => setPage(page + 1)}
               >
-                Próxima →
-              </button>
+                Próxima
+              </ActionButton>
             </div>
           )}
         </>

@@ -150,7 +150,7 @@ describe("escrita e revisão do diário", () => {
     fireEvent.change(await screen.findByLabelText("Texto"), {
       target: { value: "Ainda escrevendo" },
     });
-    fireEvent.click(screen.getByRole("link", { name: "← Escrita e revisão" }));
+    fireEvent.click(screen.getByRole("link", { name: "Escrita e revisão" }));
     expect(await screen.findByRole("alertdialog")).toBeTruthy();
     fireEvent.click(
       screen.getByRole("button", { name: "Continuar escrevendo" }),
@@ -264,7 +264,7 @@ describe("consulta e autenticação", () => {
       total: 21,
     });
     visit("/diario");
-    fireEvent.click(await screen.findByRole("button", { name: "Próxima →" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Próxima" }));
     await waitFor(() =>
       expect(mocks.listEntries).toHaveBeenLastCalledWith(
         expect.objectContaining({ publicOnly: true, page: 1 }),
