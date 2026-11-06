@@ -88,6 +88,30 @@ describe("interface de recuperação de senha", () => {
     expect(mocks.updateUser).not.toHaveBeenCalled();
   });
 
+  it("alterna a visibilidade dos campos de senha de forma independente sem enviar o formulário", async () => {
+    renderPage("/redefinir-senha", <ResetPassword />);
+    const password = await screen.findByLabelText("Nova senha");
+    const confirmation = screen.getByLabelText("Confirmar nova senha");
+
+    expect(password.getAttribute("type")).toBe("password");
+    expect(confirmation.getAttribute("type")).toBe("password");
+
+    fireEvent.click(screen.getByRole("button", { name: "Mostrar nova senha" }));
+    expect(password.getAttribute("type")).toBe("text");
+    expect(confirmation.getAttribute("type")).toBe("password");
+
+    fireEvent.click(screen.getByRole("button", { name: "Mostrar confirmação de senha" }));
+    expect(password.getAttribute("type")).toBe("text");
+    expect(confirmation.getAttribute("type")).toBe("text");
+
+    fireEvent.click(screen.getByRole("button", { name: "Ocultar nova senha" }));
+    expect(password.getAttribute("type")).toBe("password");
+    expect(confirmation.getAttribute("type")).toBe("text");
+
+    expect(mocks.getSession).not.toHaveBeenCalled();
+    expect(mocks.updateUser).not.toHaveBeenCalled();
+  });
+
   it("atualiza a senha, limpa a sessão de recuperação e confirma sucesso", async () => {
     renderPage("/redefinir-senha", <ResetPassword />);
     await screen.findByLabelText("Nova senha");
