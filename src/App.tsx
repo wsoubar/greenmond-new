@@ -30,6 +30,7 @@ import {
 import { AuthProvider } from "./features/diary/Auth";
 import { DiaryList, DiaryDetail, MyDiary, DiaryEditor, Login } from "./features/diary/Pages";
 import { DiarySearch } from "./features/diary/Search";
+import { RequestRecovery, ResetPassword } from "./features/diary/Recovery";
 
 const navigation = [
   ["/", "Visão geral"],
@@ -584,6 +585,8 @@ export function AppShell() {
             <Route path="/diario" element={<DiaryList />} />
             <Route path="/diario/:entryId" element={<DiaryDetail />} />
             <Route path="/entrar" element={<Login />} />
+            <Route path="/recuperar-senha" element={<RequestRecovery />} />
+            <Route path="/redefinir-senha" element={<ResetPassword />} />
             <Route path="/meu-diario" element={<MyDiary />} />
             <Route path="/meu-diario/:entryId" element={<DiaryEditor />} />
             <Route path="*" element={<NotFound />} />

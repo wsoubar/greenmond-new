@@ -420,9 +420,8 @@ export function Login() {
         >
           {busy ? "Entrando…" : "Entrar"}
         </ActionButton>
-        <p className="diary-help">
-          Para receber acesso ou recuperar sua senha, procure o narrador.
-        </p>
+        <ActionLink icon="arrowRight" to="/recuperar-senha">Esqueci minha senha</ActionLink>
+        <p className="diary-help">Para receber acesso, procure o narrador.</p>
       </form>
     </>
   );

@@ -60,6 +60,14 @@ No GitHub, configure em **Settings → Secrets and variables → Actions → Var
 
 Sem as variáveis, o site continua funcionando como acervo e informa que o diário está indisponível. Não há dados de diário fictícios nem fallback privado em localStorage; o armazenamento local contém apenas a sessão Auth sob `greenmond-auth-v1`. Logout usa escopo local para não encerrar sessões em outros aplicativos.
 
+### Recuperação de senha por aplicativo
+
+O Greenmond oferece recuperação de senha na tela de entrada usando `resetPasswordForEmail`, com `redirectTo` igual à URL de produção `https://wsoubar.github.io/greenmond-new/?recovery=1`. O retorno usa a origem e o base path publicados mais a query `recovery=1`, sem fragmento (`#`). A aplicação processa o retorno antes de iniciar o roteador e permite definir uma nova senha.
+
+Para autorizar esse retorno, incluir `https://wsoubar.github.io/greenmond-new/?recovery=1` na allowlist de **Authentication → URL Configuration → Redirect URLs** do projeto Supabase usado pelo Greenmond. Essa entrada autoriza o callback desta aplicação. Não alterar **Site URL** nem outras opções globais de Auth para habilitar a recuperação: o projeto pode servir outros aplicativos, e essas opções são compartilhadas. Se o painel exigir uma URL base, manter a configuração global existente e solicitar ao administrador apenas a inclusão da URL do Greenmond na allowlist.
+
+O fluxo está implementado localmente; a configuração da allowlist e o funcionamento no ambiente publicado ainda precisam ser confirmados.
+
 ## 4. Fluxo de uso
 
 - Visitante: abre `#/diario`, filtra por tipo e lê entradas publicadas.
@@ -83,12 +91,12 @@ npm run build
 
 `test:db` aplica a migração em uma instância PostgreSQL embutida via PGlite, com papéis `anon`/`authenticated` e `auth.uid()` simulando o UUID da sessão. Valida RLS, chamadas diretas não autorizadas, autoria, atribuição, estados, conflitos, busca e retirada de publicações. Não usa o banco remoto e não substitui a integração real com Supabase Auth/PostgREST.
 
-Os testes de interface usam serviços simulados para verificar sessão, edição, falhas, revisão e navegação. A revisão visual ampla permanece adiada, conforme solicitado.
+Os testes de interface usam serviços simulados para verificar sessão, edição, falhas, revisão e navegação. Eles não exercitam envio ou recebimento real de e-mail, callback de recuperação, Supabase Auth/PostgREST remoto ou a configuração da allowlist. A revisão visual ampla permanece adiada, conforme solicitado.
 
-Antes de liberar no projeto real, verificar com uma conta de narrador, duas contas de jogadores e uma conta do mesmo projeto sem perfil Greenmond: login, rascunho, negativa de acesso cruzado, revisão, publicação pública, arquivamento e pesquisa. Conferir também os links diretos com `#` e os assets no GitHub Pages. As políticas do banco devem negar escrita direta nas tabelas mesmo para usuários autenticados.
+Antes de liberar no projeto real, verificar com uma conta de narrador, duas contas de jogadores e uma conta do mesmo projeto sem perfil Greenmond: login, rascunho, negativa de acesso cruzado, revisão, publicação pública, arquivamento e pesquisa. Conferir também os links diretos com `#` e os assets no GitHub Pages. Para recuperação, testar o pedido de e-mail, o retorno a `https://wsoubar.github.io/greenmond-new/?recovery=1` sem fragmento em `redirectTo`, a definição da nova senha e o login posterior; confirmar que essa URL está na allowlist e que as opções globais compartilhadas permanecem adequadas aos demais aplicativos. As políticas do banco devem negar escrita direta nas tabelas mesmo para usuários autenticados.
 
-Não alterar configurações globais de Auth para corrigir problemas específicos do Greenmond. Recuperação de senha nesta versão é administrada pelo responsável no painel; não há fluxo de recuperação na aplicação.
+Não alterar configurações globais de Auth para corrigir problemas específicos do Greenmond. Pedidos iniciados diretamente pelo painel podem continuar usando a Site URL padrão compartilhada; a recuperação iniciada pelo Greenmond utiliza seu próprio retorno.
 
 ## Situação desta entrega
 
-Implementação e testes locais disponíveis; migração remota, criação/atribuição das contas, variáveis do projeto e GitHub Actions, validação Auth/PostgREST e deploy dependem de configuração externa. Nenhuma dessas etapas remotas é presumida concluída.
+Implementação e testes locais disponíveis. A configuração remota do banco, contas, variáveis e GitHub Actions não foi confirmada nesta verificação. Continuam pendentes a inclusão do callback na allowlist, o teste real do fluxo de recuperação e a publicação das alterações. Os testes locais não comprovam publicação nem integração real.
