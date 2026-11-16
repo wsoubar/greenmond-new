@@ -43,6 +43,7 @@ const navigation = [
   ["/busca", "Buscar no acervo"],
   ["/diario", "Diário da crônica"],
   ["/meu-diario", "Escrita e revisão"],
+  ["/contato", "Contato"],
 ];
 function ScrollTop() {
   const { pathname } = useLocation();
