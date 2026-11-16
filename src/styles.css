@@ -1403,3 +1403,19 @@ details p {
   .ui-button, .ui-action-link { transition: none; }
   .ui-icon-spin { animation: none; }
 }
+
+.contact-form { max-width: 760px; position: relative; }
+.contact-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-list { list-style: none; padding: 0; display: grid; gap: 12px; }
+.contact-list button { width: 100%; text-align: left; display: grid; gap: 8px; padding: 20px; color: inherit; background: #ffffff05; border: 1px solid var(--line); border-radius: 8px; cursor: pointer; }
+.contact-list strong { font-size: 1.15rem; }
+.contact-list span, .contact-detail { overflow-wrap: anywhere; }
+.contact-detail { max-width: 850px; }
+.contact-message { white-space: pre-wrap; line-height: 1.8; margin: 24px 0; }
+.page-footer > a { color: inherit; text-underline-offset: 4px; }
+.page-footer { flex-wrap: wrap; gap: 12px; }
+.page-footer > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; }
+@media (max-width: 640px) {
+  .page-footer > a { flex-basis: 100%; }
+}
+.contact-verification { max-width: 100%; margin: 20px 0; }

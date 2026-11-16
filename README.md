@@ -39,3 +39,7 @@ Links antigos sem `#` precisam ser atualizados: o GitHub Pages continuará retor
 ## Diário com Supabase
 
 Consulte [o guia de configuração](docs/diario-supabase.md) para aplicar a migração, autorizar participantes e configurar variáveis locais e do GitHub Actions. Todas as tabelas, funções e políticas usam o prefixo `greenmond_`. Use `npm run test:db` para validar as permissões em PostgreSQL local embutido. Sem configuração, o acervo continua disponível.
+
+## Contato com os narradores
+
+O formulário público em `#/contato` recebe mensagens privadas na seção **Escrita e revisão → Contatos**, exclusiva dos narradores. Consulte [docs/contato.md](docs/contato.md) para configurar banco, Edge Function, secrets e proteção contra spam. Use `npm run test:contact-db` para validar permissões e limite de envios localmente. A funcionalidade precisa dessa configuração remota para receber mensagens.

@@ -24,6 +24,8 @@ import {
   type Status,
 } from "./api";
 
+import { ContactInboxLink } from "../contact/Pages";
+
 function useLoad<T>(key: string, load: () => Promise<T>) {
   const [state, setState] = useState<{
     value: T | null;
@@ -182,6 +184,7 @@ function List({ privateView = false }: { privateView?: boolean }) {
       </Header>
       <div className="diary-toolbar">
         <AccountLink />
+        {privateView && <ContactInboxLink />}
         {privateView && (
           <ActionLink icon="plus" className="button" to="/meu-diario/novo">
             Nova entrada

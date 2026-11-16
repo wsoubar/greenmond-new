@@ -32,6 +32,8 @@ import { DiaryList, DiaryDetail, MyDiary, DiaryEditor, Login } from "./features/
 import { DiarySearch } from "./features/diary/Search";
 import { RequestRecovery, ResetPassword } from "./features/diary/Recovery";
 
+import { ContactPage, ContactInbox } from "./features/contact/Pages";
+
 const navigation = [
   ["/", "Visão geral"],
   ["/cidade", "A cidade"],
@@ -588,6 +590,8 @@ export function AppShell() {
             <Route path="/recuperar-senha" element={<RequestRecovery />} />
             <Route path="/redefinir-senha" element={<ResetPassword />} />
             <Route path="/meu-diario" element={<MyDiary />} />
+            <Route path="/contato" element={<ContactPage />} />
+            <Route path="/meu-diario/contatos" element={<ContactInbox />} />
             <Route path="/meu-diario/:entryId" element={<DiaryEditor />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -595,6 +599,7 @@ export function AppShell() {
         <footer className="page-footer">
           <span>GREENMOND</span>
           <p>Carolina do Sul · Crônicas da noite</p>
+          <Link to="/contato">Fale com os narradores</Link>
         </footer>
       </div>
     </AuthProvider>

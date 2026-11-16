@@ -11,7 +11,8 @@
     "lint": "eslint src",
     "validate:data": "node scripts/validate-data.mjs",
     "test": "vitest run",
-    "test:db": "node scripts/test-diary-db.mjs"
+    "test:db": "node scripts/test-diary-db.mjs",
+    "test:contact-db": "node scripts/test-contact-db.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.118.0",
